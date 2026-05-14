@@ -7,11 +7,20 @@ import { bunny } from 'laravel-vite-plugin/fonts';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+    server: {
+        host: '127.0.0.1',
+    },
     plugins: [
         laravel({
             input: ['resources/css/app.css', 'resources/js/app.tsx'],
             refresh: true,
             fonts: [
+                bunny('Syne', {
+                    weights: [600, 700, 800],
+                }),
+                bunny('DM Sans', {
+                    weights: [400, 500, 600],
+                }),
                 bunny('Instrument Sans', {
                     weights: [400, 500, 600],
                 }),
