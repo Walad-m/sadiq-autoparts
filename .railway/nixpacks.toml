@@ -2,7 +2,7 @@
 nixPackages = ["nodejs", "php84", "composer", "nodejs-pnpm"]
 
 [start]
-cmd = "composer install --no-dev && npm install && npm run build && php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=$PORT"
+cmd = "composer install --no-dev && npm install && npm run build && php artisan serve --host=0.0.0.0 --port=$PORT"
 
 [env]
 LOG_CHANNEL = "errorlog"

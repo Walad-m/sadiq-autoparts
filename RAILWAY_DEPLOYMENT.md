@@ -62,6 +62,31 @@ php artisan key:generate --show
 
 ## Post-Deployment Checklist
 
+### Step 1: Run Database Migrations
+Once the app deploys successfully, you need to run migrations manually:
+
+**Option A: Using Railway CLI**
+```bash
+railway run php artisan migrate --force
+railway run php artisan db:seed --class=RoleSeeder
+```
+
+**Option B: Using Railway Dashboard Web Shell**
+1. Go to Railway Dashboard → Your Project → Web Service
+2. Click "View Logs" → Switch to "Web Shell" tab
+3. Run:
+```bash
+php artisan migrate --force
+php artisan db:seed --class=RoleSeeder
+```
+
+### Step 2: Create Initial Admin User (if needed)
+```bash
+php artisan tinker
+>>> User::create(['name' => 'Admin', 'email' => 'admin@sadiq.test', 'password' => Hash::make('password')])
+>>> exit
+```
+
 - [ ] Database migrations ran successfully
 - [ ] Application loads at Railway URL
 - [ ] Can create products (tests POST)
