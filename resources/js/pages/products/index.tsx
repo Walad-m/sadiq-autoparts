@@ -3,6 +3,7 @@ import { formatGHS } from '@/lib/constants';
 import type { Product, PaginatedData } from '@/types';
 import { Search, Plus, Pencil, Trash2 } from 'lucide-react';
 import { useState } from 'react';
+import ResourceImportExport from '@/components/resource-import-export';
 
 interface Props {
     products: PaginatedData<Product>;
@@ -36,13 +37,20 @@ export default function ProductsIndex({ products }: Props) {
                             Manage your product catalogue and stock levels
                         </p>
                     </div>
-                    <Link
-                        href="/products/create"
-                        className="inline-flex items-center gap-2 rounded-lg bg-sadiq-red px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-sadiq-red/90"
-                    >
-                        <Plus className="h-4 w-4" />
-                        Add Product
-                    </Link>
+                    <div className="flex flex-wrap items-center gap-2">
+                        <ResourceImportExport
+                            exportUrl="/products/export"
+                            importUrl="/products/import"
+                            entityName="products"
+                        />
+                        <Link
+                            href="/products/create"
+                            className="inline-flex items-center gap-2 rounded-lg bg-sadiq-red px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-sadiq-red/90"
+                        >
+                            <Plus className="h-4 w-4" />
+                            Add Product
+                        </Link>
+                    </div>
                 </div>
 
                 {/* Search */}

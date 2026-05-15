@@ -3,6 +3,7 @@ import { formatGHS } from '@/lib/constants';
 import type { Expense, PaginatedData } from '@/types';
 import { Search, Plus, Pencil, Trash2 } from 'lucide-react';
 import { useState } from 'react';
+import ResourceImportExport from '@/components/resource-import-export';
 
 interface Props {
     expenses: PaginatedData<Expense>;
@@ -32,9 +33,16 @@ export default function ExpensesIndex({ expenses }: Props) {
                         <h1 className="font-display text-2xl font-bold">Expenses</h1>
                         <p className="text-sm text-muted-foreground">Track and manage business expenses</p>
                     </div>
-                    <Link href="/expenses/create" className="inline-flex items-center gap-2 rounded-lg bg-sadiq-red px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-sadiq-red/90">
-                        <Plus className="h-4 w-4" /> Add Expense
-                    </Link>
+                    <div className="flex flex-wrap items-center gap-2">
+                        <ResourceImportExport
+                            exportUrl="/expenses/export"
+                            importUrl="/expenses/import"
+                            entityName="expenses"
+                        />
+                        <Link href="/expenses/create" className="inline-flex items-center gap-2 rounded-lg bg-sadiq-red px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-sadiq-red/90">
+                            <Plus className="h-4 w-4" /> Add Expense
+                        </Link>
+                    </div>
                 </div>
 
                 <div className="flex items-center gap-2 rounded-lg border border-input bg-background px-3 py-2">

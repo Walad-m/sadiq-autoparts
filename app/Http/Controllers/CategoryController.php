@@ -6,6 +6,9 @@ use App\Http\Requests\StoreCategoryRequest;
 use App\Models\Category;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Support\CsvImportExport;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 
 use Illuminate\Routing\Controllers\HasMiddleware;
@@ -19,8 +22,8 @@ class CategoryController extends Controller implements HasMiddleware
     public static function middleware(): array
     {
         return [
-            new Middleware('can:view-categories', only: ['index']),
-            new Middleware('can:create-categories', only: ['create', 'store']),
+            new Middleware('can:view-categories', only: ['index', 'export']),
+            new Middleware('can:create-categories', only: ['create', 'store', 'import']),
             new Middleware('can:edit-categories', only: ['edit', 'update']),
             new Middleware('can:delete-categories', only: ['destroy']),
         ];
@@ -43,7 +46,7 @@ class CategoryController extends Controller implements HasMiddleware
 
     public function store(StoreCategoryRequest $request)
     {
-        $user = auth()->user();
+        $user = Auth::user();
         $category = Category::create($request->validated());
 
         // Log category creation
@@ -67,7 +70,7 @@ class CategoryController extends Controller implements HasMiddleware
 
     public function update(StoreCategoryRequest $request, Category $category)
     {
-        $user = auth()->user();
+        $user = Auth::user();
         $oldData = $category->getAttributes();
         $category->update($request->validated());
 
@@ -88,7 +91,7 @@ class CategoryController extends Controller implements HasMiddleware
 
     public function destroy(Category $category)
     {
-        $user = auth()->user();
+        $user = Auth::user();
         $categoryData = $category->getAttributes();
         $category->delete();
 
@@ -101,5 +104,65 @@ class CategoryController extends Controller implements HasMiddleware
         return redirect()
             ->route('categories.index')
             ->with('success', 'Category deleted successfully.');
+    }
+
+    public function export()
+    {
+        $categories = Category::orderBy('name')
+            ->get()
+            ->map(static fn (Category $category): array => [
+                $category->name,
+                $category->description,
+            ]);
+
+        return CsvImportExport::download('categories.csv', [
+            'name',
+            'description',
+        ], $categories);
+    }
+
+    public function import(Request $request)
+    {
+        $request->validate([
+            'file' => ['required', 'file', 'mimes:csv,txt'],
+        ]);
+
+        $user = Auth::user();
+        $imported = 0;
+
+        DB::transaction(function () use (&$imported, $request, $user): void {
+            $imported = CsvImportExport::import($request->file('file'), function (array $row, int $line) use ($user): void {
+                $name = trim((string) ($row['name'] ?? ''));
+
+                if ($name === '') {
+                    throw new \InvalidArgumentException("Missing category name on CSV line {$line}.");
+                }
+
+                $category = Category::updateOrCreate(
+                    ['name' => $name],
+                    ['description' => $this->nullIfEmpty($row['description'] ?? null)],
+                );
+
+                activity()
+                    ->causedBy($user)
+                    ->performedOn($category)
+                    ->withProperties([
+                        'source' => 'csv_import',
+                        'line' => $line,
+                    ])
+                    ->log('category_imported');
+            });
+        });
+
+        return redirect()
+            ->route('categories.index')
+            ->with('success', "Imported {$imported} categories successfully.");
+    }
+
+    private function nullIfEmpty(mixed $value): ?string
+    {
+        $trimmed = trim((string) $value);
+
+        return $trimmed === '' ? null : $trimmed;
     }
 }

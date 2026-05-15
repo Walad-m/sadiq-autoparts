@@ -25,6 +25,17 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('expenses', ExpenseController::class)->except(['show']);
     Route::resource('sales', SaleController::class)->only(['index', 'show', 'destroy']);
 
+    Route::get('products/export', [ProductController::class, 'export'])->name('products.export');
+    Route::post('products/import', [ProductController::class, 'import'])->name('products.import');
+    Route::get('categories/export', [CategoryController::class, 'export'])->name('categories.export');
+    Route::post('categories/import', [CategoryController::class, 'import'])->name('categories.import');
+    Route::get('customers/export', [CustomerController::class, 'export'])->name('customers.export');
+    Route::post('customers/import', [CustomerController::class, 'import'])->name('customers.import');
+    Route::get('suppliers/export', [SupplierController::class, 'export'])->name('suppliers.export');
+    Route::post('suppliers/import', [SupplierController::class, 'import'])->name('suppliers.import');
+    Route::get('expenses/export', [ExpenseController::class, 'export'])->name('expenses.export');
+    Route::post('expenses/import', [ExpenseController::class, 'import'])->name('expenses.import');
+
     // Sales refunds and exchanges
     Route::get('sales/{sale}/refund', [SaleController::class, 'initiateRefund'])
         ->name('sales.refund.initiate');

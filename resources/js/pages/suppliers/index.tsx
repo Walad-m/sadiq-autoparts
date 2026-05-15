@@ -2,6 +2,7 @@ import { Head, Link, router } from '@inertiajs/react';
 import type { Supplier, PaginatedData } from '@/types';
 import { Search, Plus, Pencil, Trash2 } from 'lucide-react';
 import { useState } from 'react';
+import ResourceImportExport from '@/components/resource-import-export';
 
 interface Props {
     suppliers: PaginatedData<Supplier>;
@@ -31,9 +32,16 @@ export default function SuppliersIndex({ suppliers }: Props) {
                         <h1 className="font-display text-2xl font-bold">Suppliers</h1>
                         <p className="text-sm text-muted-foreground">Manage your supplier network</p>
                     </div>
-                    <Link href="/suppliers/create" className="inline-flex items-center gap-2 rounded-lg bg-sadiq-red px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-sadiq-red/90">
-                        <Plus className="h-4 w-4" /> Add Supplier
-                    </Link>
+                    <div className="flex flex-wrap items-center gap-2">
+                        <ResourceImportExport
+                            exportUrl="/suppliers/export"
+                            importUrl="/suppliers/import"
+                            entityName="suppliers"
+                        />
+                        <Link href="/suppliers/create" className="inline-flex items-center gap-2 rounded-lg bg-sadiq-red px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-sadiq-red/90">
+                            <Plus className="h-4 w-4" /> Add Supplier
+                        </Link>
+                    </div>
                 </div>
 
                 <div className="flex items-center gap-2 rounded-lg border border-input bg-background px-3 py-2">

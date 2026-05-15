@@ -92,6 +92,16 @@ export default function PosIndex({ products, customers, todayRevenue, todaySales
         );
     }
 
+    function setQty(productId: number, quantity: number) {
+        setCart((prev) =>
+            prev.map((i) => {
+                if (i.product_id !== productId) return i;
+                const nextQty = Math.max(1, Math.min(quantity, i.max_stock));
+                return { ...i, quantity: nextQty };
+            }),
+        );
+    }
+
     function removeFromCart(productId: number) {
         setCart((prev) => prev.filter((i) => i.product_id !== productId));
     }
@@ -269,7 +279,22 @@ export default function PosIndex({ products, customers, todayRevenue, todaySales
                                                             >
                                                                 <Minus className="h-3 w-3" />
                                                             </button>
-                                                            <span className="w-10 text-center text-sm font-bold">{item.quantity}</span>
+                                                            <input
+                                                                type="number"
+                                                                min="1"
+                                                                max={item.max_stock}
+                                                                value={item.quantity}
+                                                                onChange={(e) => {
+                                                                    const nextQty = Number(e.target.value);
+
+                                                                    if (Number.isNaN(nextQty)) {
+                                                                        return;
+                                                                    }
+
+                                                                    setQty(item.product_id, nextQty);
+                                                                }}
+                                                                className="h-7 w-14 rounded-lg border border-input bg-background text-center text-sm font-bold outline-none transition-colors focus:border-sadiq-red/50"
+                                                            />
                                                             <button
                                                                 onClick={() => updateQty(item.product_id, 1)}
                                                                 className="flex h-7 w-7 items-center justify-center rounded-lg border border-input transition-colors hover:bg-muted"
