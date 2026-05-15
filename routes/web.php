@@ -18,13 +18,6 @@ Route::inertia('/', 'welcome', [
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', DashboardController::class)->name('dashboard');
 
-    Route::resource('products', ProductController::class);
-    Route::resource('categories', CategoryController::class)->except(['show']);
-    Route::resource('customers', CustomerController::class)->except(['show']);
-    Route::resource('suppliers', SupplierController::class)->except(['show']);
-    Route::resource('expenses', ExpenseController::class)->except(['show']);
-    Route::resource('sales', SaleController::class)->only(['index', 'show', 'destroy']);
-
     Route::get('products/export', [ProductController::class, 'export'])->name('products.export');
     Route::post('products/import', [ProductController::class, 'import'])->name('products.import');
     Route::get('categories/export', [CategoryController::class, 'export'])->name('categories.export');
@@ -35,6 +28,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('suppliers/import', [SupplierController::class, 'import'])->name('suppliers.import');
     Route::get('expenses/export', [ExpenseController::class, 'export'])->name('expenses.export');
     Route::post('expenses/import', [ExpenseController::class, 'import'])->name('expenses.import');
+
+    Route::resource('products', ProductController::class);
+    Route::resource('categories', CategoryController::class)->except(['show']);
+    Route::resource('customers', CustomerController::class)->except(['show']);
+    Route::resource('suppliers', SupplierController::class)->except(['show']);
+    Route::resource('expenses', ExpenseController::class)->except(['show']);
+    Route::resource('sales', SaleController::class)->only(['index', 'show', 'destroy']);
 
     // Sales refunds and exchanges
     Route::get('sales/{sale}/refund', [SaleController::class, 'initiateRefund'])
