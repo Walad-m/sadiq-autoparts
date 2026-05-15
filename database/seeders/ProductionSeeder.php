@@ -21,7 +21,7 @@ class ProductionSeeder extends Seeder
             ['email' => 'sadiq@sadiqautoparts.com'],
             [
                 'name' => 'Sadiq Admin',
-                'password' => bcrypt('password'), // User will reset via email
+                'password' => bcrypt('password123'), // Explicit password for the user
                 'email_verified_at' => now(),
             ]
         );
