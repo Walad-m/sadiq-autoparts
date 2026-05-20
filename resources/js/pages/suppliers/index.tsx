@@ -38,7 +38,7 @@ export default function SuppliersIndex({ suppliers }: Props) {
                             importUrl="/suppliers/import"
                             entityName="suppliers"
                         />
-                        <Link href="/suppliers/create" className="inline-flex items-center gap-2 rounded-lg bg-sadiq-red px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-sadiq-red/90">
+                        <Link href="/suppliers/create" className="inline-flex items-center gap-2 rounded-lg bg-sabr-red px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-sabr-red/90">
                             <Plus className="h-4 w-4" /> Add Supplier
                         </Link>
                     </div>
@@ -90,3 +90,4 @@ export default function SuppliersIndex({ suppliers }: Props) {
         </>
     );
 }
+

@@ -37,7 +37,7 @@ export default function CategoriesIndex({ categories }: Props) {
                             importUrl="/categories/import"
                             entityName="categories"
                         />
-                        <Link href="/categories/create" className="inline-flex items-center gap-2 rounded-lg bg-sadiq-red px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-sadiq-red/90">
+                        <Link href="/categories/create" className="inline-flex items-center gap-2 rounded-lg bg-sabr-red px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-sabr-red/90">
                             <Plus className="h-4 w-4" /> Add Category
                         </Link>
                     </div>
@@ -87,3 +87,4 @@ export default function CategoriesIndex({ categories }: Props) {
         </>
     );
 }
+

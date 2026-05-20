@@ -27,13 +27,13 @@ interface DashboardProps {
 }
 
 const kpiCards = [
-    { key: 'todaySales', label: "Today's Sales", icon: BadgeCent, color: 'bg-sadiq-red', format: true },
-    { key: 'todayTransactions', label: 'Transactions', icon: Receipt, color: 'bg-sadiq-gold text-gray-900', format: false },
-    { key: 'totalProducts', label: 'Total Products', icon: Package, color: 'bg-sadiq-charcoal', format: false },
-    { key: 'totalCustomers', label: 'Customers', icon: Users, color: 'bg-sadiq-teal', format: false },
-    { key: 'monthlyRevenue', label: 'Monthly Revenue', icon: TrendingUp, color: 'bg-sadiq-blue', format: true },
-    { key: 'monthlyExpenses', label: 'Expenses (Month)', icon: CreditCard, color: 'bg-sadiq-coral', format: true },
-    { key: 'grossProfit', label: 'Gross Profit', icon: BarChart3, color: 'bg-sadiq-green', format: true },
+    { key: 'todaySales', label: "Today's Sales", icon: BadgeCent, color: 'bg-sabr-red', format: true },
+    { key: 'todayTransactions', label: 'Transactions', icon: Receipt, color: 'bg-sabr-gold text-gray-900', format: false },
+    { key: 'totalProducts', label: 'Total Products', icon: Package, color: 'bg-sabr-charcoal', format: false },
+    { key: 'totalCustomers', label: 'Customers', icon: Users, color: 'bg-sabr-teal', format: false },
+    { key: 'monthlyRevenue', label: 'Monthly Revenue', icon: TrendingUp, color: 'bg-sabr-blue', format: true },
+    { key: 'monthlyExpenses', label: 'Expenses (Month)', icon: CreditCard, color: 'bg-sabr-coral', format: true },
+    { key: 'grossProfit', label: 'Gross Profit', icon: BarChart3, color: 'bg-sabr-green', format: true },
 ] as const;
 
 export default function Dashboard(props: DashboardProps) {
@@ -82,7 +82,7 @@ export default function Dashboard(props: DashboardProps) {
                     <div className="rounded-xl border border-sidebar-border/70 bg-card p-6">
                         <div className="flex items-center justify-between">
                             <h3 className="font-display text-lg font-semibold">Recent Sales</h3>
-                            <Link href="/sales" className="text-sm text-sadiq-blue hover:underline">
+                            <Link href="/sales" className="text-sm text-sabr-blue hover:underline">
                                 View All
                             </Link>
                         </div>
@@ -103,8 +103,8 @@ export default function Dashboard(props: DashboardProps) {
                                             <td className="p-2 text-sm font-semibold">{formatGHS(sale.total)}</td>
                                             <td className="p-2 text-sm">
                                                 <span className={`inline-block rounded-full px-2 py-0.5 text-xs font-medium ${sale.payment_method === 'momo'
-                                                        ? 'bg-sadiq-teal/10 text-sadiq-teal'
-                                                        : 'bg-sadiq-green/10 text-sadiq-green'
+                                                        ? 'bg-sabr-teal/10 text-sabr-teal'
+                                                        : 'bg-sabr-green/10 text-sabr-green'
                                                     }`}>
                                                     {sale.payment_method === 'momo' ? 'MoMo' : 'Cash'}
                                                 </span>
@@ -124,7 +124,7 @@ export default function Dashboard(props: DashboardProps) {
                     {/* Low-stock Alerts */}
                     <div className="rounded-xl border border-sidebar-border/70 bg-card p-6">
                         <div className="flex items-center gap-2">
-                            <AlertTriangle className="h-5 w-5 text-sadiq-coral" />
+                            <AlertTriangle className="h-5 w-5 text-sabr-coral" />
                             <h3 className="font-display text-lg font-semibold">Low-Stock Alerts</h3>
                         </div>
                         {props.lowStockProducts?.length > 0 ? (
@@ -137,7 +137,7 @@ export default function Dashboard(props: DashboardProps) {
                                         <div key={product.id}>
                                             <div className="flex items-center justify-between text-sm">
                                                 <span className="font-medium">{product.name}</span>
-                                                <span className={`font-semibold ${product.quantity === 0 ? 'text-red-600' : 'text-sadiq-coral'
+                                                <span className={`font-semibold ${product.quantity === 0 ? 'text-red-600' : 'text-sabr-coral'
                                                     }`}>
                                                     {product.quantity} left
                                                 </span>
@@ -146,7 +146,7 @@ export default function Dashboard(props: DashboardProps) {
                                                 <div
                                                     className={`h-full rounded-full transition-all ${product.quantity === 0
                                                             ? 'bg-red-500'
-                                                            : 'bg-sadiq-coral'
+                                                            : 'bg-sabr-coral'
                                                         }`}
                                                     style={{ width: `${percent}%` }}
                                                 />
@@ -173,3 +173,4 @@ Dashboard.layout = {
         },
     ],
 };
+

@@ -52,7 +52,7 @@ export default function PosReceipt({ sale }: Props) {
                     <div className="flex gap-2">
                         <button
                             onClick={() => handlePrint()}
-                            className="inline-flex items-center gap-2 rounded-lg bg-sadiq-red px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-sadiq-red/90"
+                            className="inline-flex items-center gap-2 rounded-lg bg-sabr-red px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-sabr-red/90"
                         >
                             <Printer className="h-4 w-4" />
                             Print Receipt
@@ -192,3 +192,4 @@ export default function PosReceipt({ sale }: Props) {
         </>
     );
 }
+

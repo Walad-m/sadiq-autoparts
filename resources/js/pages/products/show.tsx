@@ -32,7 +32,7 @@ export default function ProductShow({ product }: Props) {
                     </div>
                     <Link
                         href={`/products/${product.id}/edit`}
-                        className="inline-flex items-center gap-2 rounded-lg bg-sadiq-red px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-sadiq-red/90"
+                        className="inline-flex items-center gap-2 rounded-lg bg-sabr-red px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-sabr-red/90"
                     >
                         <Pencil className="h-4 w-4" />
                         Edit
@@ -56,7 +56,7 @@ export default function ProductShow({ product }: Props) {
                             </div>
                             <div className="flex justify-between border-t pt-2">
                                 <span className="text-sm text-muted-foreground">Margin</span>
-                                <span className="text-sm font-semibold text-sadiq-green">
+                                <span className="text-sm font-semibold text-sabr-green">
                                     {formatGHS(product.selling_price - product.cost_price)}
                                 </span>
                             </div>
@@ -130,3 +130,4 @@ export default function ProductShow({ product }: Props) {
         </>
     );
 }
+

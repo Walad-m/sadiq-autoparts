@@ -43,7 +43,7 @@ export default function SaleShow({ sale }: Props) {
                             </div>
                             <div className="flex justify-between">
                                 <span className="text-sm text-muted-foreground">Payment</span>
-                                <span className={`inline-block rounded-full px-2 py-0.5 text-xs font-medium ${sale.payment_method === 'momo' ? 'bg-sadiq-teal/10 text-sadiq-teal' : 'bg-sadiq-green/10 text-sadiq-green'}`}>
+                                <span className={`inline-block rounded-full px-2 py-0.5 text-xs font-medium ${sale.payment_method === 'momo' ? 'bg-sabr-teal/10 text-sabr-teal' : 'bg-sabr-green/10 text-sabr-green'}`}>
                                     {sale.payment_method === 'momo' ? 'MoMo' : 'Cash'}
                                 </span>
                             </div>
@@ -88,7 +88,7 @@ export default function SaleShow({ sale }: Props) {
                                     </div>
                                     <div className="flex justify-between">
                                         <span className="text-sm text-muted-foreground">Change</span>
-                                        <span className="text-sm font-medium text-sadiq-green">{formatGHS(sale.change_given ?? 0)}</span>
+                                        <span className="text-sm font-medium text-sabr-green">{formatGHS(sale.change_given ?? 0)}</span>
                                     </div>
                                 </>
                             )}
@@ -131,3 +131,4 @@ export default function SaleShow({ sale }: Props) {
         </>
     );
 }
+

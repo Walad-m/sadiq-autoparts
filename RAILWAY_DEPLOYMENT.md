@@ -1,4 +1,4 @@
-# Railway Deployment Guide for Sadiq Auto Parts
+# Railway Deployment Guide for Sabr 89
 
 ## Quick Start
 
@@ -7,7 +7,7 @@
 git init
 git add .
 git commit -m "Ready for Railway deployment"
-git remote add origin https://github.com/YOUR_USERNAME/sadiq-autopart.git
+git remote add origin https://github.com/YOUR_USERNAME/sabr-89.git
 git push -u origin main
 ```
 
@@ -29,7 +29,7 @@ git push -u origin main
 In Railway project settings, add these variables:
 
 ```
-APP_NAME=SadiqAutoParts
+APP_NAME=Sabr89
 APP_ENV=production
 APP_DEBUG=false
 APP_KEY=base64:YOUR_APP_KEY_HERE
@@ -38,7 +38,7 @@ APP_URL=https://your-railway-url.railway.app
 DB_CONNECTION=mysql
 DB_HOST=${{mysql.RAILWAY_PRIVATE_URL}}
 DB_PORT=3306
-DB_DATABASE=sadiq
+DB_DATABASE=Sabr
 DB_USERNAME=${{mysql.MYSQL_USER}}
 DB_PASSWORD=${{mysql.MYSQL_PASSWORD}}
 
@@ -83,7 +83,7 @@ php artisan db:seed --class=RoleSeeder
 ### Step 2: Create Initial Admin User (if needed)
 ```bash
 php artisan tinker
->>> User::create(['name' => 'Admin', 'email' => 'admin@sadiq.test', 'password' => Hash::make('password')])
+>>> User::create(['name' => 'Admin', 'email' => 'admin@sabr89.test', 'password' => Hash::make('password')])
 >>> exit
 ```
 
@@ -133,7 +133,7 @@ php artisan route:cache
 | `APP_KEY` | Laravel encryption key | `base64:...` |
 | `APP_ENV` | Environment (production) | `production` |
 | `DB_HOST` | MySQL host from Railway | `${{mysql.RAILWAY_PRIVATE_URL}}` |
-| `DB_DATABASE` | Database name | `sadiq` |
+| `DB_DATABASE` | Database name | `Sabr` |
 | `MAIL_MAILER` | Notification method | `log` (for testing) |
 
 ## Rolling Back
@@ -172,7 +172,7 @@ If deployment breaks:
 
 ## Next Steps After Deployment
 
-1. Share Railway URL with Sadiq for testing
+1. Share Railway URL with Sabr for testing
 2. Monitor logs for issues
 3. Collect feedback
 4. Make adjustments and redeploy (automatic with git push)
@@ -191,4 +191,5 @@ After deployment:
 1. Go to Railway project dashboard
 2. Click your web service (Laravel app)
 3. Copy URL from "View Domains" section
-4. Share with Sadiq: `https://your-domain.railway.app`
+4. Share with Sabr: `https://your-domain.railway.app`
+

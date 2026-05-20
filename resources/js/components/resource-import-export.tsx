@@ -47,7 +47,7 @@ export default function ResourceImportExport({ exportUrl, importUrl, entityName 
                 type="button"
                 onClick={() => fileInputRef.current?.click()}
                 disabled={importing}
-                className="inline-flex items-center gap-2 rounded-lg bg-sadiq-teal px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-sadiq-teal/90 disabled:cursor-not-allowed disabled:opacity-60"
+                className="inline-flex items-center gap-2 rounded-lg bg-sabr-teal px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-sabr-teal/90 disabled:cursor-not-allowed disabled:opacity-60"
             >
                 <Upload className="h-4 w-4" />
                 {importing ? `Importing ${entityName}...` : 'Import CSV'}

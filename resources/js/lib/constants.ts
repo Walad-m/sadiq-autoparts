@@ -1,4 +1,4 @@
-export const APP_NAME = 'Sadiq Auto Parts';
+export const APP_NAME = 'Sabr 89';
 export const SHOP_PHONE = '0537 202641 / 0559 133733';
 export const SHOP_LOCATION = 'Kumasi, Ghana';
 
@@ -43,3 +43,4 @@ export const PAYMENT_METHODS = [
     { value: 'cash', label: 'Cash' },
     { value: 'momo', label: 'MoMo' },
 ] as const;
+

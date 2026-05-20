@@ -34,7 +34,7 @@ export default function SalesIndex({ sales }: Props) {
                     </div>
                     <Link
                         href="/pos"
-                        className="inline-flex items-center gap-2 rounded-lg bg-sadiq-red px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-sadiq-red/90"
+                        className="inline-flex items-center gap-2 rounded-lg bg-sabr-red px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-sabr-red/90"
                     >
                         <Monitor className="h-4 w-4" />
                         Open POS
@@ -68,7 +68,7 @@ export default function SalesIndex({ sales }: Props) {
                                         <td className="p-4 text-sm">{s.customer?.name ?? 'Walk-in'}</td>
                                         <td className="p-4 text-sm font-semibold">{formatGHS(s.total)}</td>
                                         <td className="p-4 text-sm">
-                                            <span className={`inline-block rounded-full px-2 py-0.5 text-xs font-medium ${s.payment_method === 'momo' ? 'bg-sadiq-teal/10 text-sadiq-teal' : 'bg-sadiq-green/10 text-sadiq-green'}`}>
+                                            <span className={`inline-block rounded-full px-2 py-0.5 text-xs font-medium ${s.payment_method === 'momo' ? 'bg-sabr-teal/10 text-sabr-teal' : 'bg-sabr-green/10 text-sabr-green'}`}>
                                                 {s.payment_method === 'momo' ? 'MoMo' : 'Cash'}
                                             </span>
                                         </td>
@@ -94,7 +94,7 @@ export default function SalesIndex({ sales }: Props) {
                             ) : (
                                 <tr>
                                     <td colSpan={8} className="p-8 text-center text-sm text-muted-foreground">
-                                        No sales found. <Link href="/pos" className="text-sadiq-red hover:underline">Open POS</Link> to make a sale.
+                                        No sales found. <Link href="/pos" className="text-sabr-red hover:underline">Open POS</Link> to make a sale.
                                     </td>
                                 </tr>
                             )}
@@ -118,3 +118,4 @@ export default function SalesIndex({ sales }: Props) {
         </>
     );
 }
+

@@ -1,4 +1,4 @@
-# AGENT.md — Sadiq Auto Parts Management System
+# AGENT.md — Sabr 89 Management System
 > Your single source of truth. Read the section you need. Do the work. Come back for the next.
 > One step at a time. Understand it completely before moving forward.
 
@@ -23,7 +23,7 @@ This document is your complete guide. It tells you:
 
 ### What You Are Building
 
-A complete business management system for **Sadiq Auto Parts**, a car parts shop in Kumasi, Ghana.
+A complete business management system for **Sabr 89**, a car parts shop in Kumasi, Ghana.
 
 
 
@@ -31,7 +31,7 @@ A complete business management system for **Sadiq Auto Parts**, a car parts shop
 
 | Person | Role | What they can do |
 |---|---|---|
-| Sadiq (owner) | Admin | Everything — full access to all modules |
+| Sabr (owner) | Admin | Everything — full access to all modules |
 
 
 ### The Eight Modules
@@ -42,7 +42,7 @@ A complete business management system for **Sadiq Auto Parts**, a car parts shop
 | Point of Sale | Sell parts at the counter, print receipts |
 | Products | Manage the parts catalogue and stock levels |
 | Sales | Full history of every transaction |
-| Customers | Track who buys from Sadiq |
+| Customers | Track who buys from Sabr |
 | Suppliers | Track where stock comes from |
 | Expenses | Record and categorise business costs |
 | Reports | Daily closing, monthly P&L, stock valuation |
@@ -250,7 +250,7 @@ Everything visual follows these rules. Consistent design makes a professional pr
 The starter kit comes with a full light/dark theme system. You will:
 1. Keep all of that working
 2. Set **light mode as the default** (one line change)
-3. Add your Sadiq brand colors on top as custom Tailwind classes
+3. Add your Sabr brand colors on top as custom Tailwind classes
 4. Apply those colors only to the KPI cards and key accents
 
 Do not fight the starter kit's theme system — extend it.
@@ -260,18 +260,18 @@ Do not fight the starter kit's theme system — extend it.
 These go in `resources/css/app.css` inside the `@theme {}` block.
 
 ```css
-/* Sadiq brand — used for KPI cards and accents */
---color-sadiq-red:    #C8410A;   /* Today's Sales, primary buttons, active nav */
---color-sadiq-gold:   #F5C842;   /* Transactions, highlights, logo text */
---color-sadiq-black:  #faf8f8;   /* Sidebar background, Total Products card */
---color-sadiq-teal:   #0F6E56;   /* Customers card, MoMo indicator */
---color-sadiq-blue:   #185FA5;   /* Monthly Revenue card */
---color-sadiq-purple: #534AB7;   /* Pending Orders card */
---color-sadiq-coral:  #D85A30;   /* Expenses card */
---color-sadiq-green:  #3B6D11;   /* Gross Profit card, Cash indicator */
+/* Sabr brand — used for KPI cards and accents */
+--color-sabr-red:    #C8410A;   /* Today's Sales, primary buttons, active nav */
+--color-sabr-gold:   #F5C842;   /* Transactions, highlights, logo text */
+--color-sabr-black:  #faf8f8;   /* Sidebar background, Total Products card */
+--color-sabr-teal:   #0F6E56;   /* Customers card, MoMo indicator */
+--color-sabr-blue:   #185FA5;   /* Monthly Revenue card */
+--color-sabr-purple: #534AB7;   /* Pending Orders card */
+--color-sabr-coral:  #D85A30;   /* Expenses card */
+--color-sabr-green:  #3B6D11;   /* Gross Profit card, Cash indicator */
 ```
 
-After adding these, you use them as Tailwind classes: `bg-sadiq-red`, `text-sadiq-gold`, `border-sadiq-teal`.
+After adding these, you use them as Tailwind classes: `bg-sabr-red`, `text-sabr-gold`, `border-sabr-teal`.
 
 ### UI Surface Colors (Light Mode)
 
@@ -297,7 +297,7 @@ Background:       # #faf8f8
 Width:            240px, fixed position
 Logo area:        use the logo i will provide in the public folder 
 Nav items:        Gray text + Lucide icon, subtle hover highlight
-Active nav item:  bg-sadiq-red, white text
+Active nav item:  bg-sabr-red, white text
 Bottom:           Settings link pinned to bottom
 ```
 
@@ -315,14 +315,14 @@ Structure of each card:
 
 | Card | Color |
 |---|---|
-| Today's Sales | bg-sadiq-red |
-| Transactions | bg-sadiq-gold (dark text) |
-| Total Products | bg-sadiq-black |
-| Customers | bg-sadiq-teal |
-| Monthly Revenue | bg-sadiq-blue |
-| Pending Orders | bg-sadiq-purple |
-| Expenses (Month) | bg-sadiq-coral |
-| Gross Profit | bg-sadiq-green |
+| Today's Sales | bg-sabr-red |
+| Transactions | bg-sabr-gold (dark text) |
+| Total Products | bg-sabr-black |
+| Customers | bg-sabr-teal |
+| Monthly Revenue | bg-sabr-blue |
+| Pending Orders | bg-sabr-purple |
+| Expenses (Month) | bg-sabr-coral |
+| Gross Profit | bg-sabr-green |
 
 ---
 
@@ -331,7 +331,7 @@ Structure of each card:
 Know where everything lives. Only create files that are not already provided by the starter kit.
 
 ```
-sadiq-autoparts/
+sabr-89/
 │
 ├── app/                                    ← ALL PHP/Laravel backend code
 │   ├── Http/
@@ -385,7 +385,7 @@ sadiq-autoparts/
 │       ├── app.tsx                         ← ALREADY EXISTS — do not touch
 │       ├── components/
 │       │   ├── ui/                         ← ALREADY EXISTS — shadcn, never edit manually
-│       │   ├── app-sidebar.tsx             ← EDIT — update with Sadiq branding
+│       │   ├── app-sidebar.tsx             ← EDIT — update with Sabr branding
 │       │   ├── kpi-card.tsx                ← create (Stage 8)
 │       │   ├── data-table.tsx              ← create (Stage 3)
 │       │   ├── payment-toggle.tsx          ← create (Stage 5)
@@ -473,7 +473,7 @@ part_number     string        nullable  — manufacturer's reference number
 category_id     foreignId     → categories
 supplier_id     foreignId     → suppliers (nullable)
 unit            string        required  — piece, litre, set, pair, box
-cost_price      decimal(10,2) required  — cost price (what Sadiq paid)
+cost_price      decimal(10,2) required  — cost price (what Sabr paid)
 selling_price   decimal(10,2) required  — selling price (customer pays)
 quantity        integer       required  default 0
 reorder_level   integer       required  default 5 — alert when stock hits this
@@ -774,7 +774,7 @@ export default function CreateProduct() {
             <button
                 type="submit"
                 disabled={processing}
-                className="bg-sadiq-red text-white px-6 py-2 rounded-lg disabled:opacity-50"
+                className="bg-sabr-red text-white px-6 py-2 rounded-lg disabled:opacity-50"
             >
                 {processing ? 'Saving...' : 'Save Product'}
             </button>
@@ -794,7 +794,7 @@ import { cn } from '@/lib/utils'; // already in your project
         'px-4 py-2 rounded-lg font-semibold transition-colors',
         // Conditional classes
         isActive
-            ? 'bg-sadiq-red text-white'
+            ? 'bg-sabr-red text-white'
             : 'bg-transparent text-gray-600 hover:bg-gray-100'
     )}
 >
@@ -816,7 +816,7 @@ export const formatGHS = (amount: number): string => {
 // formatGHS(4820)   → "GH₵ 4,820.00"
 // formatGHS(126.5)  → "GH₵ 126.50"
 
-export const APP_NAME = 'Sadiq Auto Parts';
+export const APP_NAME = 'Sabr 89';
 export const SHOP_PHONE = '0537 202641 / 0559 133733';
 export const SHOP_LOCATION = 'Kumasi, Ghana';
 ```
@@ -831,14 +831,14 @@ export const SHOP_LOCATION = 'Kumasi, Ghana';
 
 | Card | Color Class | Query |
 |---|---|---|
-| Today's Sales | bg-sadiq-red | SUM(total) WHERE date = today AND status = completed |
-| Transactions | bg-sadiq-gold | COUNT WHERE date = today AND status = completed |
-| Total Products | bg-sadiq-black | COUNT WHERE is_active = true |
-| Customers | bg-sadiq-teal | COUNT all customers |
-| Monthly Revenue | bg-sadiq-blue | SUM(total) WHERE month = current AND status = completed |
-| Pending Orders | bg-sadiq-purple | COUNT WHERE status = sent |
-| Expenses (Month) | bg-sadiq-coral | SUM(amount) WHERE month = current |
-| Gross Profit | bg-sadiq-green | Monthly Revenue minus Monthly Expenses |
+| Today's Sales | bg-sabr-red | SUM(total) WHERE date = today AND status = completed |
+| Transactions | bg-sabr-gold | COUNT WHERE date = today AND status = completed |
+| Total Products | bg-sabr-black | COUNT WHERE is_active = true |
+| Customers | bg-sabr-teal | COUNT all customers |
+| Monthly Revenue | bg-sabr-blue | SUM(total) WHERE month = current AND status = completed |
+| Pending Orders | bg-sabr-purple | COUNT WHERE status = sent |
+| Expenses (Month) | bg-sabr-coral | SUM(amount) WHERE month = current |
+| Gross Profit | bg-sabr-green | Monthly Revenue minus Monthly Expenses |
 
 **Below the cards:**
 - Weekly bar chart — rust red for weekdays, gold for weekends (Recharts)
@@ -866,7 +866,7 @@ RIGHT PANEL (40% width):
   - Selected = solid filled; unselected = outlined. Always one selected.
 - If CASH: "Amount Tendered" input → change calculated automatically
 - If MOMO: optional "MoMo Reference" text input
-- CHARGE button — large, full width, sadiq-red, disabled when cart is empty
+- CHARGE button — large, full width, sabr-red, disabled when cart is empty
 
 **Keyboard shortcuts:**
 ```
@@ -894,7 +894,7 @@ Create/Edit form fields:
 - Description (textarea)
 - Active toggle
 
-Rows where `quantity <= reorder_level` get a red left border to catch Sadiq's eye.
+Rows where `quantity <= reorder_level` get a red left border to catch Sabr's eye.
 
 ### 8.4 Sales History
 
@@ -932,7 +932,7 @@ Add form: title, amount, category, payment method (Cash/MoMo), date, notes.
 - **Daily Closing Report** — total sales, cash received, MoMo received, top 5 parts, cashier breakdown → PDF download
 - **Monthly P&L** — revenue, expenses, gross profit, margin % → PDF download
 - **Stock Valuation** — total inventory value at cost price → PDF download
-- **Excel Import** — Sadiq uploads existing stock list as .xlsx to bulk-create products
+- **Excel Import** — Sabr uploads existing stock list as .xlsx to bulk-create products
 
 ---
 
@@ -948,7 +948,7 @@ Build in exactly this order. Each stage has clear numbered steps and a done chec
 
 ```
 Step 0.1  Open your project in VS Code:
-          File → Open Folder → C:\Users\Admin\Herd\sadiq-autoparts
+          File → Open Folder → C:\Users\Admin\Herd\sabr-89
 
 Step 0.2  Open the integrated terminal:
           Shortcut: Ctrl + ` (the backtick key, top-left of keyboard)
@@ -969,13 +969,13 @@ Step 0.5  Terminal 2 — run database migrations:
           This sets up your database from the migration files that came with the kit.
 
 Step 0.6  Visit your app:
-          http://sadiq-autoparts.test
+          http://sabr-89.test
           You should see the default authentication page.
 
 Step 0.7  Register your admin account:
           Click Register, fill in:
-          Name:     Sadiq Admin
-          Email:    admin@sadiq.com
+          Name:     Sabr Admin
+          Email:    admin@Sabr.com
           Password: (choose something memorable, write it down)
 
 Step 0.8  After registering you land on /dashboard
@@ -991,7 +991,7 @@ Step 0.9  Explore the existing files (do not edit yet):
           Understanding what is already there prevents you from duplicating it.
 ```
 
-**Done check:** You can log in and see the dashboard at `http://sadiq-autoparts.test/dashboard`.
+**Done check:** You can log in and see the dashboard at `http://sabr-89.test/dashboard`.
 
 ```bash
 git add .
@@ -1001,7 +1001,7 @@ git commit -m "chore: stage 0 complete — environment confirmed working"
 ---
 
 ### STAGE 1 — Design System & App Layout
-**Goal:** Apply the Sadiq brand to the existing layout. Set light mode as default.
+**Goal:** Apply the Sabr brand to the existing layout. Set light mode as default.
 **You will learn:** Tailwind v4 custom colors, how React layout components work, editing existing starter kit files.
 
 **Important:** You are EDITING existing files in this stage. Not creating from scratch.
@@ -1025,20 +1025,20 @@ Step 1.2  ADD BRAND COLORS TO TAILWIND
           Open: resources/css/app.css
           Find the @theme { } block. If it doesn't exist, add it after the @import line.
 
-          Inside @theme { }, add your Sadiq brand colors:
+          Inside @theme { }, add your Sabr brand colors:
 
           @theme {
-            --color-sadiq-red:    #C8410A;
-            --color-sadiq-gold:   #F5C842;
-            --color-sadiq-black:  #111111;
-            --color-sadiq-teal:   #0F6E56;
-            --color-sadiq-blue:   #185FA5;
-            --color-sadiq-purple: #534AB7;
-            --color-sadiq-coral:  #D85A30;
-            --color-sadiq-green:  #3B6D11;
+            --color-sabr-red:    #C8410A;
+            --color-sabr-gold:   #F5C842;
+            --color-sabr-black:  #111111;
+            --color-sabr-teal:   #0F6E56;
+            --color-sabr-blue:   #185FA5;
+            --color-sabr-purple: #534AB7;
+            --color-sabr-coral:  #D85A30;
+            --color-sabr-green:  #3B6D11;
           }
 
-          After saving, you can use bg-sadiq-red, text-sadiq-gold etc. anywhere.
+          After saving, you can use bg-sabr-red, text-sabr-gold etc. anywhere.
           WHY: Defining colors once means you change them in one place if needed.
 
 Step 1.3  UPDATE FONTS
@@ -1079,7 +1079,7 @@ Step 1.5  UPDATE THE SIDEBAR (edit existing file — do not create a new one)
               PEOPLE: Customers, Suppliers
               FINANCE: Expenses, Reports
           - Each item: Lucide icon (left) + label text
-          - Active state: bg-sadiq-red text-white
+          - Active state: bg-sabr-red text-white
           - Inactive state: text-gray-400 hover:bg-white/5
           - Settings link at the very bottom using mt-auto
 
@@ -1147,10 +1147,10 @@ Step 1.7  UPDATE THE DASHBOARD PAGE (edit existing file)
 
 Step 1.8  TEST YOUR WORK
           Save all files. Check npm run dev is still running in Terminal 1.
-          Visit http://sadiq-autoparts.test/dashboard
+          Visit http://sabr-89.test/dashboard
 
           You should see:
-          ✓ Black sidebar on the left with SADIQ in gold
+          ✓ Black sidebar on the left with Sabr in gold
           ✓ Warm off-white page background (#F7F6F3)
           ✓ Top bar with "Dashboard" title and your avatar
           ✓ All nav items with Lucide icons
@@ -1158,11 +1158,11 @@ Step 1.8  TEST YOUR WORK
           ✓ Light mode by default (not dark)
 ```
 
-**Done check:** App looks like the Sadiq brand. #faf8f8 sidebar, gold logo, warm white background, correct fonts. Light mode is the default. Every authenticated page uses the updated layout.
+**Done check:** App looks like the Sabr brand. #faf8f8 sidebar, gold logo, warm white background, correct fonts. Light mode is the default. Every authenticated page uses the updated layout.
 
 ```bash
 git add .
-git commit -m "feat: sadiq design system, brand colors, sidebar, and app layout"
+git commit -m "feat: Sabr design system, brand colors, sidebar, and app layout"
 ```
 
 ---
@@ -1219,7 +1219,7 @@ Step 2.6  ASSIGN YOURSELF THE ADMIN ROLE
           php artisan tinker
 
           At the >>> prompt:
-          >>> User::where('email', 'admin@sadiq.com')->first()->assignRole('Admin')
+          >>> User::where('email', 'admin@Sabr.com')->first()->assignRole('Admin')
           >>> exit
 
           WHY: Tinker is an interactive PHP console — you can run any Laravel code
@@ -1227,7 +1227,7 @@ Step 2.6  ASSIGN YOURSELF THE ADMIN ROLE
 
 Step 2.7  VERIFY IT WORKED
           php artisan tinker
-          >>> User::where('email', 'admin@sadiq.com')->first()->getRoleNames()
+          >>> User::where('email', 'admin@Sabr.com')->first()->getRoleNames()
           Should output: Illuminate\Support\Collection {#... all: ["Admin"]}
           >>> exit
 
@@ -1251,7 +1251,7 @@ git commit -m "feat: roles, permissions, and activity logging installed"
 ---
 
 ### STAGE 3 — Products & Inventory
-**Goal:** Sadiq can add, view, search, and edit every auto part in his catalogue.
+**Goal:** Sabr can add, view, search, and edit every auto part in his catalogue.
 **You will learn:** Creating migrations, Models, Eloquent relationships, resource controllers, Form Requests, TanStack Table, Inertia forms.
 
 ```
@@ -1442,7 +1442,7 @@ git commit -m "feat: products module — migrations, models, CRUD, data table"
 ---
 
 ### STAGE 4 — Customers & Suppliers
-**Goal:** Manage the people Sadiq buys from and sells to.
+**Goal:** Manage the people Sabr buys from and sells to.
 **You will learn:** You now apply Stage 3's patterns independently. Things get faster.
 
 ```
@@ -1599,8 +1599,8 @@ Step 5.8  BUILD PaymentToggle COMPONENT
           Props: { value: 'cash' | 'momo', onChange: (v: 'cash' | 'momo') => void }
 
           Two large buttons side by side:
-          - CASH: bg-sadiq-black when active, outlined when not. Icon: Banknote
-          - MOMO: bg-sadiq-teal when active, outlined when not. Icon: Smartphone
+          - CASH: bg-sabr-black when active, outlined when not. Icon: Banknote
+          - MOMO: bg-sabr-teal when active, outlined when not. Icon: Smartphone
 
           Use cn() for conditional classes.
           This component is reused in the Expenses form too.
@@ -1612,7 +1612,7 @@ Step 5.9  BUILD ReceiptPrinter COMPONENT
           but when react-to-print triggers printing, only this component prints.
 
           Receipt structure:
-          - Header: SADIQ AUTO PARTS (bold), location, phone numbers
+          - Header: Sabr 89 (bold), location, phone numbers
           - Divider line (dashes)
           - Receipt number, date/time, cashier name
           - Divider
@@ -1666,7 +1666,7 @@ Step 5.10 BUILD pos/index.tsx PAGE
           - Label: "MoMo Reference (optional)"
 
           CHARGE button:
-          - Full width, bg-sadiq-red, large
+          - Full width, bg-sabr-red, large
           - disabled when items.length === 0 or form is submitting
           - Show keyboard hint below: "F8 to charge"
 
@@ -1827,7 +1827,7 @@ git commit -m "feat: sales history, PDF receipt download, and refund processing"
 ---
 
 ### STAGE 7 — Expenses
-**Goal:** Sadiq records and reviews all business costs.
+**Goal:** Sabr records and reviews all business costs.
 **You will learn:** Applying all previous patterns independently — this stage moves faster.
 
 ```
@@ -1859,7 +1859,7 @@ Step 7.3  IMPLEMENT ExpenseController@index
           Return Inertia page with expenses and monthlyTotal.
 
 Step 7.4  BUILD expenses/index.tsx
-          At the top: large monthly total card in bg-sadiq-coral.
+          At the top: large monthly total card in bg-sabr-coral.
           Filter row: category Select + month input.
           Table: title, category badge (color-coded), amount in GHS, payment method, date.
           "Add Expense" button.
@@ -1941,7 +1941,7 @@ Step 8.4  CREATE KpiCard COMPONENT
               value:      string       — pre-formatted, e.g. "GH₵ 4,820.00" or "38"
               subtitle:   string       — e.g. "↑ 12% vs yesterday"
               icon:       LucideIcon   — the icon component itself (not a string)
-              colorClass: string       — e.g. "bg-sadiq-red"
+              colorClass: string       — e.g. "bg-sabr-red"
               textClass?: string       — defaults to "text-white"
           }
 
@@ -1971,7 +1971,7 @@ Step 8.6  BUILD WeeklySalesChart COMPONENT
           Color logic for bars:
           const isWeekend = (day: string) => day === 'Sat' || day === 'Sun';
           <Cell fill={isWeekend(entry.day) ? '#F5C842' : '#C8410A'} />
-          — weekdays in sadiq-red, weekends in sadiq-gold
+          — weekdays in sabr-red, weekends in sabr-gold
 
           Tooltip: custom formatter that shows formatGHS(value)
           Minimal style: no grid lines, clean axes
@@ -1990,8 +1990,8 @@ Step 8.8  BUILD PaymentBreakdown COMPONENT
 
           Show today's cash vs MoMo totals.
           A horizontal bar split proportionally between the two:
-          - Left section: sadiq-black (Cash)
-          - Right section: sadiq-teal (MoMo)
+          - Left section: sabr-black (Cash)
+          - Right section: sabr-teal (MoMo)
           Below the bar: formatted GHS amounts and percentages for each method.
 ```
 
@@ -2005,7 +2005,7 @@ git commit -m "feat: live dashboard — KPI cards, weekly chart, analytics"
 ---
 
 ### STAGE 9 — Reports & Excel Import
-**Goal:** Sadiq generates daily and monthly reports as PDFs. Can bulk-import stock from Excel.
+**Goal:** Sabr generates daily and monthly reports as PDFs. Can bulk-import stock from Excel.
 **You will learn:** Building report PDFs from Blade templates, Excel import with Maatwebsite.
 
 ```
@@ -2275,8 +2275,8 @@ Keep this section open when something goes wrong.
 | Dev server command | `npm run dev` (Terminal 1, leave running) |
 | Production build | `npm run build` |
 | PHP commands | `php artisan [command]` (Terminal 2) |
-| Local URL | `http://sadiq-autoparts.test` |
-| Project folder | `C:\Users\Admin\Herd\sadiq-autoparts` |
+| Local URL | `http://sabr-89.test` |
+| Project folder | `C:\Users\Admin\Herd\sabr-89` |
 | Font system | Bunny Fonts loaded via laravel-vite-plugin in vite.config.ts |
 | Format code | `npm run format` |
 | Type check | `npm run types:check` |
@@ -2285,5 +2285,5 @@ Keep this section open when something goes wrong.
 
 *Document version: 3.0*
 *Stack: Laravel 13 + React 19 + Inertia.js v3 + Tailwind v4 + TypeScript strict mode*
-*Project: Sadiq Auto Parts Management System — Kumasi, Ghana*
+*Project: Sabr 89 Management System — Kumasi, Ghana*
 *Principle: Edit existing starter kit files first. Only create new files when nothing existing can serve the purpose.*

@@ -14,15 +14,15 @@
         'Noto Color Emoji';
     --font-display: 'Syne', Georgia, 'Times New Roman', Times, serif;
 
-    /* Sadiq brand colors — used for KPI cards and accents */
-    --color-sadiq-red: #C8410A;
-    --color-sadiq-gold: #E7B04A;
-    --color-sadiq-charcoal: #1F2937;
-    --color-sadiq-teal: #0F6E56;
-    --color-sadiq-blue: #185FA5;
-    --color-sadiq-purple: #534AB7;
-    --color-sadiq-coral: #D85A30;
-    --color-sadiq-green: #3B6D11;
+    /* Sabr brand colors — used for KPI cards and accents */
+    --color-sabr-red: #C8410A;
+    --color-sabr-gold: #E7B04A;
+    --color-sabr-charcoal: #1F2937;
+    --color-sabr-teal: #0F6E56;
+    --color-sabr-blue: #185FA5;
+    --color-sabr-purple: #534AB7;
+    --color-sabr-coral: #D85A30;
+    --color-sabr-green: #3B6D11;
 
     --radius-lg: var(--radius);
     --radius-md: calc(var(--radius) - 2px);
@@ -152,3 +152,4 @@
         @apply bg-background text-foreground;
     }
 }
+

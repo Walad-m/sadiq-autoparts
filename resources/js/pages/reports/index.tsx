@@ -50,7 +50,7 @@ export default function ReportsIndex({ stats }: Props) {
                             <DollarSign className="h-4 w-4 text-muted-foreground" />
                         </CardHeader>
                         <CardContent>
-                            <div className={`text-2xl font-bold ${stats.today_profit >= 0 ? 'text-sadiq-green' : 'text-sadiq-red'}`}>
+                            <div className={`text-2xl font-bold ${stats.today_profit >= 0 ? 'text-sabr-green' : 'text-sabr-red'}`}>
                                 {formatGHS(stats.today_profit)}
                             </div>
                         </CardContent>
@@ -92,3 +92,4 @@ function BarChart3Icon(props: React.SVGProps<SVGSVGElement>) {
     </svg>
   )
 }
+

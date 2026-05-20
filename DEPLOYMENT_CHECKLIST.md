@@ -1,4 +1,4 @@
-# Sadiq Auto Parts - Railway Deployment Checklist
+# Sabr 89 - Railway Deployment Checklist
 
 ## Pre-Deployment Preparation ✓
 - [x] npm build works successfully
@@ -33,7 +33,7 @@ APP_KEY=base64:YOUR_APP_KEY_HERE
 **Auto-populated from MySQL service (use exactly as shown):**
 ```
 DB_HOST=${{mysql.RAILWAY_PRIVATE_URL}}
-DB_DATABASE=sadiq
+DB_DATABASE=Sabr
 DB_USERNAME=${{mysql.MYSQL_USER}}
 DB_PASSWORD=${{mysql.MYSQL_PASSWORD}}
 ```
@@ -42,7 +42,7 @@ DB_PASSWORD=${{mysql.MYSQL_PASSWORD}}
 ```
 APP_ENV=production
 APP_DEBUG=false
-APP_NAME=SadiqAutoParts
+APP_NAME=Sabr89
 DB_CONNECTION=mysql
 CACHE_DRIVER=database
 SESSION_DRIVER=database
@@ -100,13 +100,13 @@ If can't access database:
 - Try restarting MySQL service in Railway
 - Check Railway MySQL service logs
 
-## Final Steps: Share with Sadiq
+## Final Steps: Share with Sabr
 
 Once all checks pass:
 1. Copy the Railway URL from "View Domains"
-2. Share with Sadiq: "Your system is ready to test at: https://xxx.railway.app"
+2. Share with Sabr: "Your system is ready to test at: https://xxx.railway.app"
 3. Provide login credentials (if database seed ran)
-4. Ask Sadiq to report any issues
+4. Ask Sabr to report any issues
 
 ## Rollback Plan
 
@@ -117,5 +117,6 @@ If something goes wrong after deployment:
 4. Your live system returns to working state
 5. Investigate issue and try again
 
-## Session ID: sadiq-autopart-production-jan-2025
+## Session ID: sabr-89-production-jan-2025
 Railway Project URL: https://railway.app/project/YOUR_PROJECT_ID (save this!)
+

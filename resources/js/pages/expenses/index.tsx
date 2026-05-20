@@ -39,7 +39,7 @@ export default function ExpensesIndex({ expenses }: Props) {
                             importUrl="/expenses/import"
                             entityName="expenses"
                         />
-                        <Link href="/expenses/create" className="inline-flex items-center gap-2 rounded-lg bg-sadiq-red px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-sadiq-red/90">
+                        <Link href="/expenses/create" className="inline-flex items-center gap-2 rounded-lg bg-sabr-red px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-sabr-red/90">
                             <Plus className="h-4 w-4" /> Add Expense
                         </Link>
                     </div>
@@ -70,7 +70,7 @@ export default function ExpensesIndex({ expenses }: Props) {
                                         <td className="p-4 text-sm capitalize text-muted-foreground">{e.category}</td>
                                         <td className="p-4 text-sm font-semibold">{formatGHS(e.amount)}</td>
                                         <td className="p-4 text-sm">
-                                            <span className={`inline-block rounded-full px-2 py-0.5 text-xs font-medium ${e.payment_method === 'momo' ? 'bg-sadiq-teal/10 text-sadiq-teal' : 'bg-sadiq-green/10 text-sadiq-green'}`}>
+                                            <span className={`inline-block rounded-full px-2 py-0.5 text-xs font-medium ${e.payment_method === 'momo' ? 'bg-sabr-teal/10 text-sabr-teal' : 'bg-sabr-green/10 text-sabr-green'}`}>
                                                 {e.payment_method === 'momo' ? 'MoMo' : 'Cash'}
                                             </span>
                                         </td>
@@ -97,3 +97,4 @@ export default function ExpensesIndex({ expenses }: Props) {
         </>
     );
 }
+

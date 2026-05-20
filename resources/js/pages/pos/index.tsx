@@ -149,8 +149,8 @@ export default function PosIndex({ products, customers, todayRevenue, todaySales
                         <h1 className="font-display text-lg font-bold">Point of Sale</h1>
                         <div className="ml-auto flex items-center gap-4">
                             <div className="flex items-center gap-2 rounded-lg border border-sidebar-border/50 bg-background px-4 py-2">
-                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-sadiq-green/10">
-                                    <DollarSign className="h-4 w-4 text-sadiq-green" />
+                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-sabr-green/10">
+                                    <DollarSign className="h-4 w-4 text-sabr-green" />
                                 </div>
                                 <div>
                                     <div className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">Today's Revenue</div>
@@ -158,8 +158,8 @@ export default function PosIndex({ products, customers, todayRevenue, todaySales
                                 </div>
                             </div>
                             <div className="flex items-center gap-2 rounded-lg border border-sidebar-border/50 bg-background px-4 py-2">
-                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-sadiq-teal/10">
-                                    <CheckCircle className="h-4 w-4 text-sadiq-teal" />
+                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-sabr-teal/10">
+                                    <CheckCircle className="h-4 w-4 text-sabr-teal" />
                                 </div>
                                 <div>
                                     <div className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">Sales Today</div>
@@ -167,8 +167,8 @@ export default function PosIndex({ products, customers, todayRevenue, todaySales
                                 </div>
                             </div>
                             <div className="flex items-center gap-2 rounded-lg border border-sidebar-border/50 bg-background px-4 py-2">
-                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-sadiq-gold/10">
-                                    <Receipt className="h-4 w-4 text-sadiq-gold" />
+                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-sabr-gold/10">
+                                    <Receipt className="h-4 w-4 text-sabr-gold" />
                                 </div>
                                 <div>
                                     <div className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">Cart Items</div>
@@ -186,7 +186,7 @@ export default function PosIndex({ products, customers, todayRevenue, todaySales
                         {/* Search Bar */}
                         <div className="p-4 pb-0">
                             <div className="relative">
-                                <div className="flex items-center gap-3 rounded-xl border-2 border-input bg-background px-4 py-3 transition-colors focus-within:border-sadiq-red/50">
+                                <div className="flex items-center gap-3 rounded-xl border-2 border-input bg-background px-4 py-3 transition-colors focus-within:border-sabr-red/50">
                                     <Search className="h-5 w-5 text-muted-foreground" />
                                     <input
                                         ref={searchRef}
@@ -222,7 +222,7 @@ export default function PosIndex({ products, customers, todayRevenue, todaySales
                                                     </div>
                                                 </div>
                                                 <div className="text-right">
-                                                    <div className="text-sm font-bold text-sadiq-red">{formatGHS(p.selling_price)}</div>
+                                                    <div className="text-sm font-bold text-sabr-red">{formatGHS(p.selling_price)}</div>
                                                     <div className={`text-xs ${p.quantity <= 5 ? 'font-semibold text-amber-600' : 'text-muted-foreground'}`}>
                                                         {p.quantity} in stock
                                                     </div>
@@ -293,7 +293,7 @@ export default function PosIndex({ products, customers, todayRevenue, todaySales
 
                                                                     setQty(item.product_id, nextQty);
                                                                 }}
-                                                                className="h-7 w-14 rounded-lg border border-input bg-background text-center text-sm font-bold outline-none transition-colors focus:border-sadiq-red/50"
+                                                                className="h-7 w-14 rounded-lg border border-input bg-background text-center text-sm font-bold outline-none transition-colors focus:border-sabr-red/50"
                                                             />
                                                             <button
                                                                 onClick={() => updateQty(item.product_id, 1)}
@@ -371,8 +371,8 @@ export default function PosIndex({ products, customers, todayRevenue, todaySales
                                         onClick={() => setPaymentMethod('cash')}
                                         className={`flex items-center justify-center gap-2 rounded-xl border-2 px-3 py-3 text-sm font-semibold transition-all ${
                                             paymentMethod === 'cash'
-                                                ? 'border-sadiq-green bg-sadiq-green/10 text-sadiq-green shadow-sm'
-                                                : 'border-input text-muted-foreground hover:border-sadiq-green/30 hover:bg-muted'
+                                                ? 'border-sabr-green bg-sabr-green/10 text-sabr-green shadow-sm'
+                                                : 'border-input text-muted-foreground hover:border-sabr-green/30 hover:bg-muted'
                                         }`}
                                     >
                                         <DollarSign className="h-4 w-4" />
@@ -382,8 +382,8 @@ export default function PosIndex({ products, customers, todayRevenue, todaySales
                                         onClick={() => setPaymentMethod('momo')}
                                         className={`flex items-center justify-center gap-2 rounded-xl border-2 px-3 py-3 text-sm font-semibold transition-all ${
                                             paymentMethod === 'momo'
-                                                ? 'border-sadiq-teal bg-sadiq-teal/10 text-sadiq-teal shadow-sm'
-                                                : 'border-input text-muted-foreground hover:border-sadiq-teal/30 hover:bg-muted'
+                                                ? 'border-sabr-teal bg-sabr-teal/10 text-sabr-teal shadow-sm'
+                                                : 'border-input text-muted-foreground hover:border-sabr-teal/30 hover:bg-muted'
                                         }`}
                                     >
                                         <Smartphone className="h-4 w-4" />
@@ -430,22 +430,22 @@ export default function PosIndex({ products, customers, todayRevenue, todaySales
                                 )}
                             </div>
 
-                            <div className="flex justify-between rounded-lg bg-sadiq-red/5 px-3 py-2">
+                            <div className="flex justify-between rounded-lg bg-sabr-red/5 px-3 py-2">
                                 <span className="text-base font-bold">Total</span>
-                                <span className="text-lg font-bold text-sadiq-red">{formatGHS(total)}</span>
+                                <span className="text-lg font-bold text-sabr-red">{formatGHS(total)}</span>
                             </div>
 
                             {paymentMethod === 'cash' && tendered > 0 && tendered >= total && (
-                                <div className="flex justify-between rounded-lg bg-sadiq-green/5 px-3 py-2 text-sm">
-                                    <span className="font-medium text-sadiq-green">Change Due</span>
-                                    <span className="font-bold text-sadiq-green">{formatGHS(change)}</span>
+                                <div className="flex justify-between rounded-lg bg-sabr-green/5 px-3 py-2 text-sm">
+                                    <span className="font-medium text-sabr-green">Change Due</span>
+                                    <span className="font-bold text-sabr-green">{formatGHS(change)}</span>
                                 </div>
                             )}
 
                             <button
                                 onClick={handleCheckout}
                                 disabled={!canCheckout}
-                                className="flex w-full items-center justify-center gap-2 rounded-xl bg-sadiq-red py-3.5 text-sm font-bold text-white shadow-sm transition-all hover:bg-sadiq-red/90 hover:shadow-md active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none"
+                                className="flex w-full items-center justify-center gap-2 rounded-xl bg-sabr-red py-3.5 text-sm font-bold text-white shadow-sm transition-all hover:bg-sabr-red/90 hover:shadow-md active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none"
                             >
                                 <CheckCircle className="h-4 w-4" />
                                 {processing ? 'Processing...' : `Checkout & Pay — ${formatGHS(total)}`}
@@ -457,3 +457,4 @@ export default function PosIndex({ products, customers, todayRevenue, todaySales
         </>
     );
 }
+

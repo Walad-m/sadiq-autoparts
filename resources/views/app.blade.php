@@ -30,19 +30,20 @@
             }
         </style>
 
-        <link rel="icon" href="/sadiq-favicon.ico" sizes="any">
-        <link rel="icon" href="/sadiq-favicon.svg" type="image/svg+xml">
-        <link rel="apple-touch-icon" href="/sadiq-apple-touch-icon.png">
+        <link rel="icon" href="/sabr-favicon.ico" sizes="any">
+        <link rel="icon" href="/sabr-favicon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="/sabr-apple-touch-icon.png">
 
         @fonts
 
         @viteReactRefresh
         @vite(['resources/css/app.css', 'resources/js/app.tsx', "resources/js/pages/{$page['component']}.tsx"])
         <x-inertia::head>
-            <title>{{ config('app.name', 'Sadiq Auto Parts') }}</title>
+            <title>{{ config('app.name', 'Sabr 89') }}</title>
         </x-inertia::head>
     </head>
     <body class="font-sans antialiased">
         <x-inertia::app />
     </body>
 </html>
+

@@ -34,7 +34,7 @@ export default function CategoryCreate() {
                     </div>
 
                     <div className="flex gap-3">
-                        <button type="submit" disabled={form.processing} className="rounded-lg bg-sadiq-red px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-sadiq-red/90 disabled:opacity-50">
+                        <button type="submit" disabled={form.processing} className="rounded-lg bg-sabr-red px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-sabr-red/90 disabled:opacity-50">
                             {form.processing ? 'Saving...' : 'Save Category'}
                         </button>
                         <Link href="/categories" className="rounded-lg border border-input px-6 py-2.5 text-sm font-medium transition-colors hover:bg-muted">Cancel</Link>
@@ -44,3 +44,4 @@ export default function CategoryCreate() {
         </>
     );
 }
+

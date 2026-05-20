@@ -18,9 +18,9 @@ class ProductionSeeder extends Seeder
 
         // Ensure admin user exists with admin role (production email)
         $admin = User::firstOrCreate(
-            ['email' => 'sadiq@sadiqautoparts.com'],
+            ['email' => 'Sabr@Sabr89.com'],
             [
-                'name' => 'Sadiq Admin',
+                'name' => 'Sabr Admin',
                 'password' => bcrypt('password'), // User will reset via email
                 'email_verified_at' => now(),
             ]
@@ -32,3 +32,4 @@ class ProductionSeeder extends Seeder
         }
     }
 }
+

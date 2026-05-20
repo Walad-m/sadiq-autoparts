@@ -55,7 +55,7 @@ export default function Welcome({
 
     return (
         <>
-            <Head title="Sadiq Auto Parts" />
+            <Head title="Sabr 89" />
 
             <div className="relative min-h-screen overflow-hidden bg-[#F7F6F3] text-[#1A1A1A]">
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_10%,rgba(200,65,10,0.08),transparent_40%),radial-gradient(circle_at_90%_20%,rgba(15,110,86,0.08),transparent_35%),radial-gradient(circle_at_50%_90%,rgba(17,17,17,0.06),transparent_40%)]" />
@@ -64,12 +64,12 @@ export default function Welcome({
                     <header className="mb-10 flex flex-wrap items-center justify-between gap-4">
                         <div className="flex items-center gap-3">
                             <img
-                                src="/sadiq-favicon.svg"
-                                alt="Sadiq Auto Parts"
+                                src="/sabr-favicon.svg"
+                                alt="Sabr 89"
                                 className="h-10 w-10 rounded-md border border-[#E0DDD8] bg-white p-1"
                             />
                             <div>
-                                <p className="font-display text-xl leading-none">SADIQ</p>
+                                <p className="font-display text-xl leading-none">Sabr</p>
                                 <p className="text-xs uppercase tracking-[0.2em] text-[#6B7280]">Auto Parts</p>
                             </div>
                         </div>
@@ -110,7 +110,7 @@ export default function Welcome({
                                     Built for daily retail speed
                                 </p>
                                 <h1 className="font-display text-4xl leading-tight lg:text-5xl">
-                                    Run Sadiq Auto Parts from one clean system.
+                                    Run Sabr 89 from one clean system.
                                 </h1>
                                 <p className="mt-4 max-w-xl text-sm leading-6 text-[#6B7280] lg:text-base">
                                     From POS checkout to stock tracking and monthly reporting, everything is designed
@@ -182,8 +182,8 @@ export default function Welcome({
 
                     <footer className="mt-8 rounded-2xl border border-[#E0DDD8] bg-white px-6 py-4 text-sm text-[#6B7280]">
                         <div className="flex flex-col justify-between gap-2 md:flex-row md:items-center">
-                            <p>Sadiq Auto Parts Management System - Kumasi, Ghana</p>
-                            <p>© {new Date().getFullYear()} Sadiq Auto Parts</p>
+                            <p>Sabr 89 Management System - Kumasi, Ghana</p>
+                            <p>© {new Date().getFullYear()} Sabr 89</p>
                         </div>
                     </footer>
                 </div>
@@ -191,3 +191,4 @@ export default function Welcome({
         </>
     );
 }
+
