@@ -1,6 +1,6 @@
 export const APP_NAME = 'Sabr 89';
-export const SHOP_PHONE = '0537 202641 / 0559 133733';
-export const SHOP_LOCATION = 'Kumasi, Ghana';
+export const SHOP_PHONE = '054 223 9154 / 0537202641';
+export const SHOP_LOCATION = 'Magazine Kumasi, Ghana';
 
 export function formatGHS(amount: number): string {
     try {
