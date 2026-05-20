@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 namespace Database\Seeders;
 
@@ -9,7 +9,7 @@ class ProductionSeeder extends Seeder
 {
     /**
      * Seed the application's database for production.
-     * This seeder is idempotent—it won't delete or duplicate data.
+     * This seeder is idempotentâ€”it won't delete or duplicate data.
      */
     public function run(): void
     {
@@ -18,9 +18,9 @@ class ProductionSeeder extends Seeder
 
         // Ensure admin user exists with admin role (production email)
         $admin = User::firstOrCreate(
-            ['email' => 'Sabr@Sabr89.com'],
+            ['email' => 'sadiq@sabr89.com'],
             [
-                'name' => 'Sabr Admin',
+                'name' => 'Sadiq Abdullah',
                 'password' => bcrypt('password'), // User will reset via email
                 'email_verified_at' => now(),
             ]

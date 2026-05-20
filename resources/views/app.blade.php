@@ -30,9 +30,9 @@
             }
         </style>
 
-        <link rel="icon" href="/sabr-favicon.ico" sizes="any">
-        <link rel="icon" href="/sabr-favicon.svg" type="image/svg+xml">
-        <link rel="apple-touch-icon" href="/sabr-apple-touch-icon.png">
+        <link rel="icon" href="/sabr-89-favicon.ico" sizes="any">
+        <link rel="icon" href="/sabr-89-favicon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="/sabr-89-apple-touch-icon.png">
 
         @fonts
 

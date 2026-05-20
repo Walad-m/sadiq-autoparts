@@ -64,7 +64,7 @@ export default function Welcome({
                     <header className="mb-10 flex flex-wrap items-center justify-between gap-4">
                         <div className="flex items-center gap-3">
                             <img
-                                src="/sabr-favicon.svg"
+                                src="/sabr-89-favicon.svg"
                                 alt="Sabr 89"
                                 className="h-10 w-10 rounded-md border border-[#E0DDD8] bg-white p-1"
                             />
