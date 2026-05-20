@@ -3,6 +3,7 @@ import {
     BarChart3,
     Clock3,
     Package,
+    Phone,
     Receipt,
     ShieldCheck,
     ShoppingCart,
@@ -74,32 +75,41 @@ export default function Welcome({
                             </div>
                         </div>
 
-                        <div className="flex items-center gap-3">
-                            {auth.user ? (
-                                <Link
-                                    href={dashboard()}
-                                    className="inline-flex items-center rounded-md bg-[#111111] px-4 py-2 text-sm font-medium text-white hover:opacity-90"
-                                >
-                                    Open Dashboard
-                                </Link>
-                            ) : (
-                                <>
+                        <div className="flex items-center gap-6">
+                            <div className="hidden items-center gap-2 text-sm md:flex">
+                                <Phone className="h-4 w-4 text-[#C8410A]" />
+                                <div className="flex flex-col">
+                                    <span className="font-medium text-[#1A1A1A]">054 223 9154</span>
+                                    <span className="text-[10px] text-[#6B7280]">0537202641</span>
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-3">
+                                {auth.user ? (
                                     <Link
-                                        href={login()}
-                                        className="inline-flex items-center rounded-md border border-[#E0DDD8] bg-white px-4 py-2 text-sm font-medium hover:bg-[#F1EFEB]"
+                                        href={dashboard()}
+                                        className="inline-flex items-center rounded-md bg-[#111111] px-4 py-2 text-sm font-medium text-white hover:opacity-90"
                                     >
-                                        Log in
+                                        Open Dashboard
                                     </Link>
-                                    {canRegister && (
+                                ) : (
+                                    <>
                                         <Link
-                                            href={register()}
-                                            className="inline-flex items-center rounded-md bg-[#C8410A] px-4 py-2 text-sm font-medium text-white hover:opacity-90"
+                                            href={login()}
+                                            className="inline-flex items-center rounded-md border border-[#E0DDD8] bg-white px-4 py-2 text-sm font-medium hover:bg-[#F1EFEB]"
                                         >
-                                            Create Account
+                                            Log in
                                         </Link>
-                                    )}
-                                </>
-                            )}
+                                        {canRegister && (
+                                            <Link
+                                                href={register()}
+                                                className="inline-flex items-center rounded-md bg-[#C8410A] px-4 py-2 text-sm font-medium text-white hover:opacity-90"
+                                            >
+                                                Create Account
+                                            </Link>
+                                        )}
+                                    </>
+                                )}
+                            </div>
                         </div>
                     </header>
 
@@ -107,14 +117,14 @@ export default function Welcome({
                         <section className="grid gap-6 rounded-3xl border border-[#E0DDD8] bg-white p-6 shadow-sm lg:grid-cols-[1.2fr_0.8fr] lg:p-8">
                             <div>
                                 <p className="mb-3 inline-flex rounded-full bg-[#FDF0E9] px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[#C8410A]">
-                                    Built for daily retail speed
+                                    Retail Operations Simplified
                                 </p>
-                                <h1 className="font-display text-4xl leading-tight lg:text-5xl">
-                                    Run Sabr 89 from one clean system.
+                                <h1 className="font-display text-4xl leading-tight tracking-tight lg:text-5xl">
+                                    Precision Control for <span className="text-[#C8410A]">Sabr 89</span>.
                                 </h1>
-                                <p className="mt-4 max-w-xl text-sm leading-6 text-[#6B7280] lg:text-base">
-                                    From POS checkout to stock tracking and monthly reporting, everything is designed
-                                    for quick action at the counter and clear visibility for the owner.
+                                <p className="mt-4 max-w-xl text-sm leading-7 text-[#6B7280] lg:text-base">
+                                    Manage your spare parts inventory, track every sale, and monitor business health
+                                    with a system built for speed and reliability at the counter.
                                 </p>
 
                                 <div className="mt-6 flex flex-wrap gap-3">
@@ -181,8 +191,11 @@ export default function Welcome({
                     </main>
 
                     <footer className="mt-8 rounded-2xl border border-[#E0DDD8] bg-white px-6 py-4 text-sm text-[#6B7280]">
-                        <div className="flex flex-col justify-between gap-2 md:flex-row md:items-center">
-                            <p>Sabr 89 Management System - Kumasi, Ghana</p>
+                        <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
+                            <div className="flex flex-col gap-1">
+                                <p className="font-medium text-[#1A1A1A]">Sabr 89 Management System</p>
+                                <p>Kumasi, Ghana • 054 223 9154 / 0537202641</p>
+                            </div>
                             <p>© {new Date().getFullYear()} Sabr 89</p>
                         </div>
                     </footer>
