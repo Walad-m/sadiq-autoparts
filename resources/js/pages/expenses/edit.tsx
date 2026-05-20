@@ -13,7 +13,7 @@ export default function ExpenseEdit({ expense }: Props) {
         amount: String(expense.amount ?? ''),
         category: (expense.category ?? '') as string,
         payment_method: (expense.payment_method ?? 'cash') as string,
-        expense_date: expense.expense_date ?? new Date().toISOString().split('T')[0],
+        expense_date: expense.expense_date ? expense.expense_date.split('T')[0] : new Date().toISOString().split('T')[0],
         notes: expense.notes ?? '',
     });
 
