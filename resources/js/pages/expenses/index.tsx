@@ -1,5 +1,5 @@
 import { Head, Link, router } from '@inertiajs/react';
-import { formatGHS } from '@/lib/constants';
+import { formatGHS, formatSimpleDate } from '@/lib/constants';
 import type { Expense, PaginatedData } from '@/types';
 import { Search, Plus, Pencil, Trash2 } from 'lucide-react';
 import { useState } from 'react';
@@ -74,7 +74,9 @@ export default function ExpensesIndex({ expenses }: Props) {
                                                 {e.payment_method === 'momo' ? 'MoMo' : 'Cash'}
                                             </span>
                                         </td>
-                                        <td className="p-4 text-sm text-muted-foreground">{e.expense_date}</td>
+                                        <td className="p-4 text-sm text-muted-foreground">
+                                            {formatSimpleDate(e.expense_date)}
+                                        </td>
                                         <td className="p-4">
                                             <div className="flex items-center gap-2">
                                                 <Link href={`/expenses/${e.id}/edit`} className="rounded p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">

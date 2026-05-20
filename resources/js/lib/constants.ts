@@ -18,6 +18,11 @@ export function formatGHS(amount: number): string {
     }
 }
 
+export function formatSimpleDate(dateStr?: string | null): string {
+    if (!dateStr) return '—';
+    return dateStr.split('T')[0];
+}
+
 /** Expense category options */
 export const EXPENSE_CATEGORIES = [
     { value: 'rent', label: 'Rent' },

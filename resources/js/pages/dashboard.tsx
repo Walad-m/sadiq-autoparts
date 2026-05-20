@@ -1,6 +1,6 @@
-import { Head, usePage, Link } from '@inertiajs/react';
+﻿import { Head, usePage, Link } from '@inertiajs/react';
 import { dashboard } from '@/routes';
-import { formatGHS } from '@/lib/constants';
+import { formatGHS, formatSimpleDate } from '@/lib/constants';
 import type { Product, Sale, PaginatedData } from '@/types';
 import {
     BadgeCent,
@@ -110,7 +110,7 @@ export default function Dashboard(props: DashboardProps) {
                                                 </span>
                                             </td>
                                             <td className="p-2 text-sm text-muted-foreground">
-                                                {new Date(sale.created_at).toLocaleDateString()}
+                                                {formatSimpleDate(sale.created_at)}
                                             </td>
                                         </tr>
                                     ))}

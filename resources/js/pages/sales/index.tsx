@@ -1,5 +1,5 @@
 import { Head, Link, router } from '@inertiajs/react';
-import { formatGHS } from '@/lib/constants';
+import { formatGHS, formatSimpleDate } from '@/lib/constants';
 import type { Sale, PaginatedData } from '@/types';
 import { Search, Monitor, Eye, Trash2 } from 'lucide-react';
 import { useState } from 'react';
@@ -78,7 +78,7 @@ export default function SalesIndex({ sales }: Props) {
                                             </span>
                                         </td>
                                         <td className="p-4 text-sm text-muted-foreground">{s.user?.name ?? '—'}</td>
-                                        <td className="p-4 text-sm text-muted-foreground">{s.created_at?.split('T')[0]}</td>
+                                        <td className="p-4 text-sm text-muted-foreground">{formatSimpleDate(s.created_at)}</td>
                                         <td className="p-4">
                                             <div className="flex items-center gap-2">
                                                 <Link href={`/sales/${s.id}`} className="rounded p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">

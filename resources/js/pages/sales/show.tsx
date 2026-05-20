@@ -1,5 +1,5 @@
 import { Head, Link } from '@inertiajs/react';
-import { formatGHS } from '@/lib/constants';
+import { formatGHS, formatSimpleDate } from '@/lib/constants';
 import type { Sale } from '@/types';
 import { ArrowLeft, Printer } from 'lucide-react';
 
@@ -21,7 +21,7 @@ export default function SaleShow({ sale }: Props) {
                     <div>
                         <h1 className="font-display text-2xl font-bold">Sale {sale.sale_number}</h1>
                         <p className="text-sm text-muted-foreground">
-                            {sale.created_at?.split('T')[0]} · {sale.user?.name ?? 'Unknown cashier'}
+                            {formatSimpleDate(sale.created_at)} · {sale.user?.name ?? 'Unknown cashier'}
                         </p>
                     </div>
                     <button
