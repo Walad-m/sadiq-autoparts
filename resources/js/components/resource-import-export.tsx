@@ -53,6 +53,9 @@ export default function ResourceImportExport({ exportUrl, importUrl, entityName 
                 {importing ? `Importing ${entityName}...` : 'Import CSV'}
             </button>
             <input
+                id={`csv-import-${entityName.toLowerCase()}`}
+                name="file"
+                aria-label={`Import ${entityName} CSV File`}
                 ref={fileInputRef}
                 type="file"
                 accept=".csv,text/csv"
