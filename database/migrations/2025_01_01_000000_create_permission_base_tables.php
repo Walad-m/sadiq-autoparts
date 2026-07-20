@@ -11,19 +11,23 @@ return new class extends Migration
         $tableNames = config('permission.table_names');
         $columnNames = config('permission.column_names');
 
-        Schema::create($tableNames['permissions'], function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name')->unique();
-            $table->string('guard_name')->default('web');
-            $table->timestamps();
-        });
+        if (! Schema::hasTable($tableNames['permissions'])) {
+            Schema::create($tableNames['permissions'], function (Blueprint $table) {
+                $table->bigIncrements('id');
+                $table->string('name')->unique();
+                $table->string('guard_name')->default('web');
+                $table->timestamps();
+            });
+        }
 
-        Schema::create($tableNames['roles'], function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name')->unique();
-            $table->string('guard_name')->default('web');
-            $table->timestamps();
-        });
+        if (! Schema::hasTable($tableNames['roles'])) {
+            Schema::create($tableNames['roles'], function (Blueprint $table) {
+                $table->bigIncrements('id');
+                $table->string('name')->unique();
+                $table->string('guard_name')->default('web');
+                $table->timestamps();
+            });
+        }
     }
 
     public function down(): void

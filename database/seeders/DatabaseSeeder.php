@@ -24,18 +24,22 @@ class DatabaseSeeder extends Seeder
         $this->call(CustomerSeeder::class);
 
         // Create admin user and assign role
-        $admin = User::factory()->create([
-            'name'  => 'Sabr Admin',
-            'email' => 'admin@sabr89.test',
-        ]);
-        $admin->assignRole('admin');
+        $admin = User::firstOrCreate(
+            ['email' => 'admin@sabr89.test'],
+            ['name'  => 'Sabr Admin', 'password' => bcrypt('password')]
+        );
+        if (! $admin->hasRole('admin')) {
+            $admin->assignRole('admin');
+        }
 
         // Create cashier (POS attendant) user
-        $cashier = User::factory()->create([
-            'name'  => 'POS Attendant',
-            'email' => 'cashier@sabr89.test',
-        ]);
-        $cashier->assignRole('cashier');
+        $cashier = User::firstOrCreate(
+            ['email' => 'cashier@sabr89.test'],
+            ['name'  => 'POS Attendant', 'password' => bcrypt('password')]
+        );
+        if (! $cashier->hasRole('cashier')) {
+            $cashier->assignRole('cashier');
+        }
     }
 }
 
