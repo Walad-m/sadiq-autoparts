@@ -10,13 +10,9 @@ import {
     Users,
     Wallet,
 } from 'lucide-react';
-import { dashboard, login, register } from '@/routes';
+import { dashboard, login } from '@/routes';
 
-export default function Welcome({
-    canRegister = true,
-}: {
-    canRegister?: boolean;
-}) {
+export default function Welcome() {
     const { auth } = usePage().props as {
         auth: { user?: { name: string } | null };
     };
@@ -92,22 +88,12 @@ export default function Welcome({
                                         Open Dashboard
                                     </Link>
                                 ) : (
-                                    <>
-                                        <Link
-                                            href={login()}
-                                            className="inline-flex items-center rounded-md border border-[#E0DDD8] bg-white px-4 py-2 text-sm font-medium hover:bg-[#F1EFEB]"
-                                        >
-                                            Log in
-                                        </Link>
-                                        {canRegister && (
-                                            <Link
-                                                href={register()}
-                                                className="inline-flex items-center rounded-md bg-[#C8410A] px-4 py-2 text-sm font-medium text-white hover:opacity-90"
-                                            >
-                                                Create Account
-                                            </Link>
-                                        )}
-                                    </>
+                                    <Link
+                                        href={login()}
+                                        className="inline-flex items-center rounded-md border border-[#E0DDD8] bg-white px-4 py-2 text-sm font-medium hover:bg-[#F1EFEB]"
+                                    >
+                                        Log in
+                                    </Link>
                                 )}
                             </div>
                         </div>
@@ -134,14 +120,6 @@ export default function Welcome({
                                     >
                                         {auth.user ? 'Continue to Dashboard' : 'Start with Login'}
                                     </Link>
-                                    {canRegister && !auth.user && (
-                                        <Link
-                                            href={register()}
-                                            className="inline-flex items-center rounded-md border border-[#E0DDD8] bg-white px-5 py-2.5 text-sm font-medium hover:bg-[#F1EFEB]"
-                                        >
-                                            Register Team Account
-                                        </Link>
-                                    )}
                                 </div>
                             </div>
 
@@ -204,4 +182,3 @@ export default function Welcome({
         </>
     );
 }
-
