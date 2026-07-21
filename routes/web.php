@@ -10,6 +10,9 @@ use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PosController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\Admin\RoleController as AdminRoleController;
+use App\Http\Controllers\Admin\ActivityLogController;
 
 Route::inertia('/', 'welcome', [
     'canRegister' => Features::enabled(Features::registration()),
@@ -57,6 +60,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Reports
     Route::get('reports', [\App\Http\Controllers\ReportController::class, 'index'])->name('reports.index');
+
+    // Administration — user management, role management, activity log
+    Route::prefix('admin')->name('admin.')->group(function () {
+        Route::resource('users', AdminUserController::class)->except(['show']);
+        Route::resource('roles', AdminRoleController::class)->except(['show']);
+        Route::get('activity-log', [ActivityLogController::class, 'index'])->name('activity-log.index');
+    });
 });
 
 require __DIR__.'/settings.php';

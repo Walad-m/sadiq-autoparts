@@ -110,3 +110,37 @@ export interface PaginatedData<T> {
     from: number | null;
     to: number | null;
 }
+
+// ---- Admin / User Management ----
+
+export interface UserRecord {
+    id: number;
+    name: string;
+    email: string;
+    is_active: boolean;
+    roles: string[];
+    created_at: string;
+}
+
+export interface Role {
+    id: number;
+    name: string;
+    permissions_count?: number;
+    users_count?: number;
+    permissions?: string[];
+}
+
+export interface Permission {
+    id: number;
+    name: string;
+}
+
+export interface ActivityLog {
+    id: number;
+    description: string;
+    causer: { id: number; name: string } | null;
+    subject_type: string | null;
+    subject_id: number | null;
+    properties: Record<string, unknown> | null;
+    created_at: string;
+}
