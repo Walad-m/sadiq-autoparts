@@ -10,6 +10,7 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = [
+        'sku',
         'name',
         'description',
         'part_number',
@@ -23,6 +24,15 @@ class Product extends Model
         'image',
         'is_active',
     ];
+
+    protected static function booted()
+    {
+        static::creating(function ($product) {
+            if (empty($product->sku)) {
+                $product->sku = 'PRD-' . strtoupper(\Illuminate\Support\Str::random(8));
+            }
+        });
+    }
 
     protected $casts = [
         'cost_price' => 'decimal:2',

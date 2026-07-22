@@ -47,8 +47,9 @@ export default function ProductCreate({ categories, suppliers }: Props) {
                 <form onSubmit={submit} className="mt-6 space-y-6">
                     {/* Name */}
                     <div>
-                        <label className="block text-sm font-medium">Name *</label>
+                        <label className="block text-sm font-medium">Name <span className="text-red-500">*</span></label>
                         <input
+                            required
                             value={form.data.name}
                             onChange={(e) => form.setData('name', e.target.value)}
                             className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm"
@@ -59,52 +60,15 @@ export default function ProductCreate({ categories, suppliers }: Props) {
                         )}
                     </div>
 
-                    {/* Part Number + Unit */}
+                    {/* SKU + Supplier */}
                     <div className="grid grid-cols-2 gap-4">
                         <div>
-                            <label className="block text-sm font-medium">Part Number</label>
+                            <label className="block text-sm font-medium">SKU (Auto-Generated)</label>
                             <input
-                                value={form.data.part_number}
-                                onChange={(e) => form.setData('part_number', e.target.value)}
-                                className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm"
-                                placeholder="Manufacturer reference"
+                                value="Generated on save"
+                                readOnly
+                                className="mt-1 w-full rounded-lg border border-input bg-muted px-3 py-2 text-sm text-muted-foreground cursor-not-allowed"
                             />
-                        </div>
-                        <div>
-                            <label className="block text-sm font-medium">Unit *</label>
-                            <select
-                                value={form.data.unit}
-                                onChange={(e) => form.setData('unit', e.target.value)}
-                                className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm"
-                            >
-                                {PRODUCT_UNITS.map((u) => (
-                                    <option key={u.value} value={u.value}>
-                                        {u.label}
-                                    </option>
-                                ))}
-                            </select>
-                        </div>
-                    </div>
-
-                    {/* Category + Supplier */}
-                    <div className="grid grid-cols-2 gap-4">
-                        <div>
-                            <label className="block text-sm font-medium">Category *</label>
-                            <select
-                                value={form.data.category_id}
-                                onChange={(e) => form.setData('category_id', e.target.value)}
-                                className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm"
-                            >
-                                <option value="">Select category</option>
-                                {categories.map((c) => (
-                                    <option key={c.id} value={c.id}>
-                                        {c.name}
-                                    </option>
-                                ))}
-                            </select>
-                            {form.errors.category_id && (
-                                <p className="mt-1 text-sm text-red-500">{form.errors.category_id}</p>
-                            )}
                         </div>
                         <div>
                             <label className="block text-sm font-medium">Supplier</label>
@@ -123,11 +87,63 @@ export default function ProductCreate({ categories, suppliers }: Props) {
                         </div>
                     </div>
 
+                    {/* Part Number + Unit */}
+                    <div className="grid grid-cols-2 gap-4">
+                        <div>
+                            <label className="block text-sm font-medium">Part Number</label>
+                            <input
+                                value={form.data.part_number}
+                                onChange={(e) => form.setData('part_number', e.target.value)}
+                                className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm"
+                                placeholder="Manufacturer reference"
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium">Unit <span className="text-red-500">*</span></label>
+                            <select
+                                required
+                                value={form.data.unit}
+                                onChange={(e) => form.setData('unit', e.target.value)}
+                                className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm"
+                            >
+                                {PRODUCT_UNITS.map((u) => (
+                                    <option key={u.value} value={u.value}>
+                                        {u.label}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                    </div>
+
+                    {/* Category + Supplier */}
+                    <div className="grid grid-cols-2 gap-4">
+                        <div>
+                            <label className="block text-sm font-medium">Category <span className="text-red-500">*</span></label>
+                            <select
+                                required
+                                value={form.data.category_id}
+                                onChange={(e) => form.setData('category_id', e.target.value)}
+                                className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm"
+                            >
+                                <option value="">Select category</option>
+                                {categories.map((c) => (
+                                    <option key={c.id} value={c.id}>
+                                        {c.name}
+                                    </option>
+                                ))}
+                            </select>
+                            {form.errors.category_id && (
+                                <p className="mt-1 text-sm text-red-500">{form.errors.category_id}</p>
+                            )}
+                        </div>
+                    </div>
+
                     {/* Cost Price + Selling Price */}
                     <div className="grid grid-cols-2 gap-4">
                         <div>
-                            <label className="block text-sm font-medium">Cost Price (GHS) *</label>
+                            <label className="block text-sm font-medium">Cost Price (GHS) <span className="text-red-500">*</span></label>
                             <input
+                                required
                                 type="number"
                                 step="0.01"
                                 min="0"
@@ -141,8 +157,9 @@ export default function ProductCreate({ categories, suppliers }: Props) {
                             )}
                         </div>
                         <div>
-                            <label className="block text-sm font-medium">Selling Price (GHS) *</label>
+                            <label className="block text-sm font-medium">Selling Price (GHS) <span className="text-red-500">*</span></label>
                             <input
+                                required
                                 type="number"
                                 step="0.01"
                                 min="0"
@@ -160,8 +177,9 @@ export default function ProductCreate({ categories, suppliers }: Props) {
                     {/* Quantity + Reorder Level */}
                     <div className="grid grid-cols-2 gap-4">
                         <div>
-                            <label className="block text-sm font-medium">Current Stock *</label>
+                            <label className="block text-sm font-medium">Current Stock <span className="text-red-500">*</span></label>
                             <input
+                                required
                                 type="number"
                                 min="0"
                                 value={form.data.quantity}
@@ -173,8 +191,9 @@ export default function ProductCreate({ categories, suppliers }: Props) {
                             )}
                         </div>
                         <div>
-                            <label className="block text-sm font-medium">Reorder Level *</label>
+                            <label className="block text-sm font-medium">Reorder Level <span className="text-red-500">*</span></label>
                             <input
+                                required
                                 type="number"
                                 min="0"
                                 value={form.data.reorder_level}

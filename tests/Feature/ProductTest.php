@@ -20,6 +20,7 @@ beforeEach(function () {
 test('unauthorized users cannot view products', function () {
     $this->actingAs($this->unauthorizedUser)
         ->get('/products')
+        ->dump()
         ->assertStatus(403);
 });
 
@@ -76,6 +77,8 @@ test('admin can update a product', function () {
             'reorder_level' => 5,
             'is_active' => true,
         ])
+        ->dumpSession()
+        ->dump()
         ->assertRedirect('/products');
 
     $this->assertDatabaseHas('products', ['name' => 'New Pad']);

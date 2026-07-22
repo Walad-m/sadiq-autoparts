@@ -11,6 +11,16 @@ class StoreCustomerRequest extends FormRequest
         return true;
     }
 
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'phone' => $this->phone === '' ? null : $this->phone,
+            'email' => $this->email === '' ? null : $this->email,
+            'address' => $this->address === '' ? null : $this->address,
+            'notes' => $this->notes === '' ? null : $this->notes,
+        ]);
+    }
+
     public function rules(): array
     {
         return [

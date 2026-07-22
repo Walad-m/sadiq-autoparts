@@ -1,5 +1,6 @@
 import { usePage } from '@inertiajs/react';
-import type { ReactNode } from 'react';
+import { useEffect, type ReactNode } from 'react';
+import { toast } from 'sonner';
 import { SidebarProvider } from '@/components/ui/sidebar';
 import type { AppVariant } from '@/types';
 
@@ -9,7 +10,16 @@ type Props = {
 };
 
 export function AppShell({ children, variant = 'sidebar' }: Props) {
-    const isOpen = usePage().props.sidebarOpen;
+    const { sidebarOpen, flash } = usePage().props;
+
+    useEffect(() => {
+        if (flash?.success) {
+            toast.success(flash.success);
+        }
+        if (flash?.error) {
+            toast.error(flash.error);
+        }
+    }, [flash]);
 
     if (variant === 'header') {
         return (
@@ -17,5 +27,5 @@ export function AppShell({ children, variant = 'sidebar' }: Props) {
         );
     }
 
-    return <SidebarProvider defaultOpen={isOpen}>{children}</SidebarProvider>;
+    return <SidebarProvider defaultOpen={sidebarOpen}>{children}</SidebarProvider>;
 }

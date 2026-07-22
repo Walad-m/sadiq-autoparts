@@ -106,11 +106,10 @@ export default function ProductsIndex({ products }: Props) {
                                         >
                                             <td className="p-4">
                                                 <div className="text-sm font-medium">{product.name}</div>
-                                                {product.part_number && (
-                                                    <div className="text-xs text-muted-foreground">
-                                                        {product.part_number}
-                                                    </div>
-                                                )}
+                                                <div className="text-xs text-muted-foreground mt-0.5">
+                                                    {product.sku && <span className="mr-2 font-mono text-gray-500">{product.sku}</span>}
+                                                    {product.part_number && <span>PN: {product.part_number}</span>}
+                                                </div>
                                             </td>
                                             <td className="p-4 text-sm">
                                                 {product.category?.name ?? '—'}

@@ -11,6 +11,15 @@ class UpdateProductRequest extends FormRequest
         return true;
     }
 
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'supplier_id' => $this->supplier_id === '' ? null : $this->supplier_id,
+            'part_number' => $this->part_number === '' ? null : $this->part_number,
+            'description' => $this->description === '' ? null : $this->description,
+        ]);
+    }
+
     public function rules(): array
     {
         return [

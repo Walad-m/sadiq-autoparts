@@ -40,19 +40,26 @@ export default function ProductEdit({ product, categories, suppliers }: Props) {
 
                 <form onSubmit={submit} className="mt-6 space-y-6">
                     <div>
-                        <label className="block text-sm font-medium">Name *</label>
-                        <input value={form.data.name} onChange={(e) => form.setData('name', e.target.value)} className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm" />
+                        <label className="block text-sm font-medium">Name <span className="text-red-500">*</span></label>
+                        <input required value={form.data.name} onChange={(e) => form.setData('name', e.target.value)} className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm" />
                         {form.errors.name && <p className="mt-1 text-sm text-red-500">{form.errors.name}</p>}
                     </div>
 
                     <div className="grid grid-cols-2 gap-4">
                         <div>
+                            <label className="block text-sm font-medium">SKU (Auto-Generated)</label>
+                            <input value={product.sku || 'N/A'} readOnly className="mt-1 w-full rounded-lg border border-input bg-muted px-3 py-2 text-sm cursor-not-allowed text-muted-foreground" />
+                        </div>
+                        <div>
                             <label className="block text-sm font-medium">Part Number</label>
                             <input value={form.data.part_number} onChange={(e) => form.setData('part_number', e.target.value)} className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm" />
                         </div>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-4">
                         <div>
-                            <label className="block text-sm font-medium">Unit *</label>
-                            <select value={form.data.unit} onChange={(e) => form.setData('unit', e.target.value)} className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm">
+                            <label className="block text-sm font-medium">Unit <span className="text-red-500">*</span></label>
+                            <select required value={form.data.unit} onChange={(e) => form.setData('unit', e.target.value)} className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm">
                                 {PRODUCT_UNITS.map((u) => (<option key={u.value} value={u.value}>{u.label}</option>))}
                             </select>
                         </div>
@@ -60,8 +67,8 @@ export default function ProductEdit({ product, categories, suppliers }: Props) {
 
                     <div className="grid grid-cols-2 gap-4">
                         <div>
-                            <label className="block text-sm font-medium">Category *</label>
-                            <select value={form.data.category_id} onChange={(e) => form.setData('category_id', e.target.value)} className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm">
+                            <label className="block text-sm font-medium">Category <span className="text-red-500">*</span></label>
+                            <select required value={form.data.category_id} onChange={(e) => form.setData('category_id', e.target.value)} className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm">
                                 <option value="">Select category</option>
                                 {categories.map((c) => (<option key={c.id} value={c.id}>{c.name}</option>))}
                             </select>
@@ -78,25 +85,25 @@ export default function ProductEdit({ product, categories, suppliers }: Props) {
 
                     <div className="grid grid-cols-2 gap-4">
                         <div>
-                            <label className="block text-sm font-medium">Cost Price (GHS) *</label>
-                            <input type="number" step="0.01" min="0" value={form.data.cost_price} onChange={(e) => form.setData('cost_price', e.target.value)} className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm" />
+                            <label className="block text-sm font-medium">Cost Price (GHS) <span className="text-red-500">*</span></label>
+                            <input required type="number" step="0.01" min="0" value={form.data.cost_price} onChange={(e) => form.setData('cost_price', e.target.value)} className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm" />
                             {form.errors.cost_price && <p className="mt-1 text-sm text-red-500">{form.errors.cost_price}</p>}
                         </div>
                         <div>
-                            <label className="block text-sm font-medium">Selling Price (GHS) *</label>
-                            <input type="number" step="0.01" min="0" value={form.data.selling_price} onChange={(e) => form.setData('selling_price', e.target.value)} className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm" />
+                            <label className="block text-sm font-medium">Selling Price (GHS) <span className="text-red-500">*</span></label>
+                            <input required type="number" step="0.01" min="0" value={form.data.selling_price} onChange={(e) => form.setData('selling_price', e.target.value)} className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm" />
                             {form.errors.selling_price && <p className="mt-1 text-sm text-red-500">{form.errors.selling_price}</p>}
                         </div>
                     </div>
 
                     <div className="grid grid-cols-2 gap-4">
                         <div>
-                            <label className="block text-sm font-medium">Current Stock *</label>
-                            <input type="number" min="0" value={form.data.quantity} onChange={(e) => form.setData('quantity', e.target.value)} className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm" />
+                            <label className="block text-sm font-medium">Current Stock <span className="text-red-500">*</span></label>
+                            <input required type="number" min="0" value={form.data.quantity} onChange={(e) => form.setData('quantity', e.target.value)} className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm" />
                         </div>
                         <div>
-                            <label className="block text-sm font-medium">Reorder Level *</label>
-                            <input type="number" min="0" value={form.data.reorder_level} onChange={(e) => form.setData('reorder_level', e.target.value)} className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm" />
+                            <label className="block text-sm font-medium">Reorder Level <span className="text-red-500">*</span></label>
+                            <input required type="number" min="0" value={form.data.reorder_level} onChange={(e) => form.setData('reorder_level', e.target.value)} className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm" />
                         </div>
                     </div>
 
